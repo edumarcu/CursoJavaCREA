@@ -1,4 +1,4 @@
-package demo07.demo08;
+package curso.demo07.demo08;
 
 /**
  * Interfaces, sin acabar
