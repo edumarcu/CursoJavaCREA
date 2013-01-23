@@ -3,11 +3,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>curso</groupId>
-  <artifactId>10_demo_sol</artifactId>
+  <artifactId>11_03</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>10_demo_sol</name>
+  <name>11_03</name>
   <url>http://maven.apache.org</url>
 
   <properties>
@@ -20,6 +20,11 @@
       <artifactId>junit</artifactId>
       <version>3.8.1</version>
       <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>11_02</artifactId>
+      <version>${project.version}</version>
     </dependency>
   </dependencies>
 </project>

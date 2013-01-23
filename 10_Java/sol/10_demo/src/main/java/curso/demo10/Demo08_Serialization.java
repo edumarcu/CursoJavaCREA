@@ -14,14 +14,17 @@ public class Demo08_Serialization {
         ObjectOutputStream out = new ObjectOutputStream(fos);
 
         out.writeObject(new NamedPoint(3,5));
-
         out.close();
+
+        System.out.println("BAR: " + NamedPoint.bar);
+        NamedPoint.bar++;
 
         FileInputStream fis = new FileInputStream("/tmp/objects.txt");
         ObjectInputStream in = new ObjectInputStream(fis);
 
         NamedPoint p = (NamedPoint) in.readObject();
         System.out.println(p);
+        System.out.println("BAR: " + NamedPoint.bar);
 
         in.close();
     }
@@ -34,7 +37,7 @@ class Point implements Serializable {
     private int x,y;
 
     public Point(int x, int y) {
-        System.out.println("Constructor…");
+        System.out.println("Constructor Point");
         this.x = x;
         this.y = y;
     }
@@ -65,11 +68,14 @@ class NamedPoint extends Point {
 
     private final static long serialVersionUID = 1L;
 
+    public static int bar = 5;
+
     private String nombre = "punto";
 //    private String foo = "foo";
 
     public NamedPoint(int x, int y) {
         super(x,y);
+        System.out.println("Constructor NamedPoint");
     }
 
     @Override

@@ -1,10 +1,5 @@
-package curso.ej10_01;
+package curso.ej11_02.academy;
 
-import curso.ej10_01.academy.Academy;
-import curso.ej10_01.academy.Classroom;
-import curso.ej10_01.academy.Student;
-import curso.ej10_01.academy.Subject;
-import curso.ej10_01.academy.Teacher;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.EOFException;
@@ -23,9 +18,9 @@ public class App {
     private static Academy academy;
 
     public static void main(String[] args) throws Exception {
-        loadAcademy(academy);
+        academy = loadAcademy();
 
-        String outfile = "/tmp/students.data";
+        String outfile = "students.data";
 
         // Write
         System.out.println("Guardando Alumnos:");
@@ -70,14 +65,11 @@ public class App {
 
     }
 
-    public static void loadAcademy(Academy academy) throws ParseException {
-
-        System.out.println("Academy");
-        System.out.println();
+    public static Academy loadAcademy() throws ParseException {
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm");
 
-        academy = new Academy("Java corp", "Calle Falsa 1,2,3");
+        Academy academy = new Academy("Java corp", "Calle Falsa 1,2,3");
 
         Classroom a1 = new Classroom();
         a1.setName("101");
@@ -149,5 +141,7 @@ public class App {
         academy.registerStudentOnSubject(st2.getId(), s2.getId());
         academy.registerStudentOnSubject(st3.getId(), s1.getId());
         academy.registerStudentOnSubject(st3.getId(), s2.getId());
+
+        return academy;
     }
 }

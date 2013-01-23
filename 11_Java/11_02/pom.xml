@@ -3,11 +3,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>curso</groupId>
-  <artifactId>10_demo_sol</artifactId>
+  <artifactId>11_02</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>10_demo_sol</name>
+  <name>11_02</name>
   <url>http://maven.apache.org</url>
 
   <properties>
