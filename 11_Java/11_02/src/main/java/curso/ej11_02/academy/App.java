@@ -15,10 +15,11 @@ import java.util.LinkedList;
 
 public class App {
 
-    private static Academy academy;
+    private static Academy academy = new Academy("","");
 
     public static void main(String[] args) throws Exception {
-        academy = loadAcademy();
+
+        loadAcademy(academy);
 
         String outfile = "students.data";
 
@@ -65,11 +66,12 @@ public class App {
 
     }
 
-    public static Academy loadAcademy() throws ParseException {
+    public static void loadAcademy(Academy academy) throws ParseException {
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm");
 
-        Academy academy = new Academy("Java corp", "Calle Falsa 1,2,3");
+        academy.setName("Java corp");
+        academy.setAddress("Calle Falsa 1,2,3");
 
         Classroom a1 = new Classroom();
         a1.setName("101");
@@ -142,6 +144,5 @@ public class App {
         academy.registerStudentOnSubject(st3.getId(), s1.getId());
         academy.registerStudentOnSubject(st3.getId(), s2.getId());
 
-        return academy;
     }
 }

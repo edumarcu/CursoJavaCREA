@@ -25,7 +25,8 @@ public class App {
 
         // Load Academy
         System.out.print("Loading Academy...");
-        Academy academy = curso.ej11_02.academy.App.loadAcademy();
+        Academy academy = new Academy("","");
+        curso.ej11_02.academy.App.loadAcademy(academy);
 
         if (academy != null) {
             System.out.println("OK!");

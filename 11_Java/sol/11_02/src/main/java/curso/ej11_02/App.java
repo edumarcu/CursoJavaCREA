@@ -1,10 +1,10 @@
-package curso.ej10_01;
+package curso.ej11_02;
 
-import curso.ej10_01.academy.Academy;
-import curso.ej10_01.academy.Classroom;
-import curso.ej10_01.academy.Student;
-import curso.ej10_01.academy.Subject;
-import curso.ej10_01.academy.Teacher;
+import curso.ej11_02.academy.Academy;
+import curso.ej11_02.academy.Classroom;
+import curso.ej11_02.academy.Student;
+import curso.ej11_02.academy.Subject;
+import curso.ej11_02.academy.Teacher;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;

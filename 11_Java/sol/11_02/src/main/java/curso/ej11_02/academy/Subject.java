@@ -1,4 +1,4 @@
-package curso.ej10_01.academy;
+package curso.ej11_02.academy;
 
 import static java.util.Calendar.HOUR_OF_DAY;
 import static java.util.Calendar.MINUTE;

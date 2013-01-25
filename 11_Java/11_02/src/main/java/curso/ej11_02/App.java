@@ -15,7 +15,7 @@ import java.io.ObjectOutputStream;
  */
 public class App {
 
-    private static Academy academy;
+    private static Academy academy = new Academy("", "");
 
     public static void main( String[] args ) throws FileNotFoundException, IOException {
         System.out.println("Welcome!");
@@ -25,7 +25,7 @@ public class App {
          */
 
         try {
-            academy = curso.ej11_02.academy.App.loadAcademy();
+            curso.ej11_02.academy.App.loadAcademy(academy);
         } catch (Exception e){
             System.out.println("Exception: " + e);
         }

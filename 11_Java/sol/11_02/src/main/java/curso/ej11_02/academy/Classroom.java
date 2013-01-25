@@ -1,4 +1,4 @@
-package curso.ej10_01.academy;
+package curso.ej11_02.academy;
 
 import java.util.Collections;
 import java.util.Date;

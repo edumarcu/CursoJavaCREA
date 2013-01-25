@@ -1,4 +1,4 @@
-package curso.ej10_01.academy;
+package curso.ej11_02.academy;
 
 public class IdGenerator {
 
