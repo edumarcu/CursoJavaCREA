@@ -15,7 +15,6 @@ public class Client {
         String result;
 
         Socket socket = new Socket("192.168.11.66", 3450);
-
         OutputStreamWriter out = new OutputStreamWriter(socket.getOutputStream(), "UTF-8");
         InputStreamReader reader = new InputStreamReader(socket.getInputStream(), "UTF-8");
         BufferedReader in = new BufferedReader(reader);
@@ -23,7 +22,7 @@ public class Client {
         while (!"exit".equals(message)) {
             System.out.print(">");
             message = input.nextLine();
-            
+
             out.write(message + '\n');
             out.flush();
             System.out.println("\t-> Mensaje Enviado");
@@ -31,8 +30,10 @@ public class Client {
             result = in.readLine();
             System.out.println("\t-> Resultado: " + result);
         }
+        reader.close();
+        out.close();
+        in.close();
         socket.close();
-
     }
 
 }

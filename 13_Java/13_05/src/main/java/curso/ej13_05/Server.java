@@ -19,11 +19,12 @@ public class Server {
 
         WorkQueue queue = new WorkQueue();
         Socket socket = null;
+        SocketPooler socketPooler;
 
         boolean run = true;
         while (run) {
             socket = server.accept();
-            SocketPooler socketPooler = new SocketPooler(socket);
+            socketPooler = new SocketPooler(socket);
             queue.addWork(socketPooler);
         }
 
@@ -42,18 +43,50 @@ class SocketPooler implements WorkUnit {
 
     public void doWork() {
         SocketProcessor processor = new SocketProcessor(socket);
-
-        Thread t = new Thread(processor);
-        t.start();
+        try {
+            processor.processSocket();
+        } catch (Exception e) {
+            System.err.println("Exception Process Socket: " + e);
+        }
+        processor.socketProcessorDestructor();
     }
 }
 
 class SocketProcessor implements Runnable {
 
     Socket socket;
+    InputStream is;
+    Reader reader;
+    BufferedReader in;
+    OutputStream os;
+    Writer out;
 
     public SocketProcessor(Socket socket) {
-        this.socket = socket;
+        try {
+            this.socket = socket;
+            this.is = socket.getInputStream();
+            this.reader = new InputStreamReader(is, "UTF-8");
+            this.in = new BufferedReader(reader);
+            this.os = socket.getOutputStream();
+            this.out = new OutputStreamWriter(os);
+        } catch (Exception e) {
+            System.err.println("Exception SocketProcessor Constructor : " + e);
+        }
+
+    }
+
+    public void socketProcessorDestructor() {
+        try {
+            this.socket.close();
+            this.is.close();
+            this.reader.close();
+            this.in.close();
+            this.os.close();
+            this.out.close();
+        } catch (Exception e) {
+            System.err.println("Exception SocketProcessor Destructor : " + e);
+        }
+
     }
 
     public void run() {
@@ -65,28 +98,26 @@ class SocketProcessor implements Runnable {
     }
 
     public void processSocket() throws Exception {
-        InputStream is = socket.getInputStream();
-        Reader reader = new InputStreamReader(is, "UTF-8");
-        BufferedReader in = new BufferedReader(reader);
 
-        String message = in.readLine();
-        boolean error = message == null || message.length() > 140;
+        boolean run = true;
+        while (run) {
 
-        if (!error) {
-            String sourceIP = socket.getInetAddress().toString();
-            System.out.println("Mensaje de '" + sourceIP + "' :");
-            System.out.println("\t" + message);
+            String message = in.readLine();
+            boolean error = message == null || message.length() > 140;
+
+            if (!error) {
+                String sourceIP = socket.getInetAddress().toString();
+                System.out.println("Mensaje de '" + sourceIP + "' :");
+                System.out.println("\t" + message);
+            }
+
+            if (!error) {
+                out.write("OK\n");
+            } else {
+                out.write("ERROR\n");
+            }
+            out.flush();
         }
-
-        OutputStream os = socket.getOutputStream();
-        Writer out = new OutputStreamWriter(os);
-        if (!error) {
-            out.write("OK\n");
-        } else {
-            out.write("ERROR\n");
-        }
-        out.close();
-        socket.close();
     }
 }
 
