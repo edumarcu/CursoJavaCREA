@@ -1,4 +1,4 @@
-package curso.ej13_03;
+package curso.ej13_04;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -15,8 +15,9 @@ public class Client {
         String result;
 
         while (!"exit".equals(message)) {
+            System.out.print(">");
             message = input.nextLine();
-
+            
             Socket socket = new Socket("192.168.11.66", 3450);
 
             OutputStreamWriter out = new OutputStreamWriter(socket.getOutputStream(), "UTF-8");

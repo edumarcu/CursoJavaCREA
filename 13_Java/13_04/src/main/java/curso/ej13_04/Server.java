@@ -9,10 +9,6 @@ import java.io.Reader;
 import java.io.Writer;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.LinkedList;
-import java.util.Queue;
-
-
 
 public class Server {
 
@@ -82,9 +78,9 @@ class SocketProcessor implements Runnable {
         OutputStream os = socket.getOutputStream();
         Writer out = new OutputStreamWriter(os);
         if (!error) {
-            out.write("OK");
+            out.write("OK\n");
         } else {
-            out.write("ERROR");
+            out.write("ERROR\n");
         }
         out.close();
         socket.close();
