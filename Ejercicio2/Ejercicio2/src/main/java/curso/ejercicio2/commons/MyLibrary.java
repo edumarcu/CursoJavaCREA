@@ -1,7 +1,6 @@
 package curso.ejercicio2.commons;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -53,8 +52,17 @@ public class MyLibrary implements Library {
         removed = books.remove(book);
         if (removed) {
             queryIsbn.remove(book.getIsbn());
+
             queryYear.get(book.getYear()).remove(book);
+            if (queryYear.get(book.getYear()).isEmpty()){
+                queryYear.put(book.getYear(), null);
+            }
+
             queryAuthor.get(book.getAuthor()).remove(book);
+            if (queryAuthor.get(book.getAuthor()).isEmpty()) {
+                queryAuthor.put(book.getAuthor(), null);
+            }
+
         }
 
         return removed;

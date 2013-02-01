@@ -15,6 +15,7 @@ se mantedra una LinkedList con dichas colisiones (manteniendo la restriccion de 
 - MyLibrary implementa la Interface Lybrary, adecuandola para este ejercicio
 - Los sources estan en Java 1.7 (uso operador <>)
 - El metodo list() de Library devuelve una lista inmodificable
+- EN las querys, si era el ultimo elemento de la lista, eliminamos la lista
 
 
 
