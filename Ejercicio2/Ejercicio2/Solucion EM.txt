@@ -1,0 +1,24 @@
+Solucion al Ejercicio 2 - Eduardo Marcuello
+-------------------------------------------
+
+1) RunNoServer
+- Se centra en el diseño e implementacion de Book y Library
+- Por simplicidad, supondremos que en Library solo puede haber un Book con cada ISBN
+- El almacenamiento principal de Books en Library se hará mediante un TreeSet,
+que gestiona de forma autonoma la no repeticion y ordenacion (alfabetica del tittle) 
+de los Books elementos de la misma
+- Para cada busqueda calculada en base a un atributo de Book, mantendremos un HashMap utilizando
+como indice el atributo en cuestion. En el caso de year y author, como habra colisiones,
+se mantedra una LinkedList con dichas colisiones (manteniendo la restriccion de unicidad y ordenacion)
+- Las implementaciones siguen los dictados de la POO:
+	- Encapsulacion de datos (datos private y Getters - Setters)
+- MyLibrary implementa la Interface Lybrary, adecuandola para este ejercicio
+- Los sources estan en Java 1.7 (uso operador <>)
+- El metodo list() de Library devuelve una lista inmodificable
+
+
+
+2) RunServer
+
+
+3) Mejoras Creativas

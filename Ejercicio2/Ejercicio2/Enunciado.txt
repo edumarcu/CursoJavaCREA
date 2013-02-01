@@ -1,0 +1,60 @@
+# Ejercicio 2:
+
+## Enunciado
+
+Dentro de "Ejercicio2.jar" encontrará dos versiones del mismo programa.
+
+* La clase curso.ejercicio2.RunNoServer
+* La clase curso.ejercicio2.RunServer
+
+Complete el proyecto actual para que se comporte de manera similar al de muestra.
+
+Si necesita añadir alguna explicación de cómo ha implementado un criterio de
+evaluación cree un documento de texto dentro del proyecto.
+
+Por favor, indique su nombre: Eduardo Marcuello (Solucion EM.txt)
+
+Nota: Piense rápido y comience por los criterios más asequibles, el tiempo es limitado.
+
+## Criterios de evaluación
+
+* La aplicación compila y ejecuta. (Requisito Indispensable)
+  * OK | NO
+
+* Uso de convenciones de código.                                    1    punto
+      * Uso del paquete distinto al por defecto.
+      * Clases, métodos y variables bien nombrados.
+      * Código bien formateado.
+
+* Funcionalidad completa de la librería.                            4    puntos
+      * Realiza todas las operaciones:
+        * Añade un libro                                           (0.5  puntos)
+        * Borra un libro                                           (0.5  puntos)
+        * Comprueba si contiene un libro                           (0.5  puntos)
+        * Lista todos los libros                                   (0.5  puntos)
+        * Encuentra un libro por isbn                              (0.5  puntos)
+        * Encuentra libros publicados en un año                    (0.25 puntos)
+        * Encuentra libros de un autor                             (0.25 puntos)
+      * Implementación Extra:
+        * La lista de todos los libros está ordenada alfabéticamente
+          por el campo título                                      (0.25 puntos)
+        * La búsqueda por isbn está precalculada.                  (0.25 puntos)
+        * La búsqueda por año está precalculada.                   (0.25 puntos)
+        * La búsqueda por autor está precalculada.                 (0.25 puntos)
+
+* Funcionalidad completa del servidor.                              3.5  puntos
+      * Existe una comunicación cliente-servidor TCP/IP            (0.25 puntos)
+      * La librería se almacena en el servidor                     (0.75 puntos)
+      * RunServer funciona completamente                           (1    punto)
+      * La librería es thread-safe                                 (0.25 puntos)
+      * El servidor permite varios clientes simultáneos            (0.25 puntos)
+      * El servidor limita el número de clientes simultáneos       (0.25 puntos)
+      * El servidor gestiona la desconexión del cliente            (0.25 puntos)
+      * El servidor acepta conexiones sólo de la red local         (0.25 puntos)
+      * El hilo del proceso servidor en RunServer se destruye al
+        terminar el hilo principal                                 (0.25 puntos)
+
+Extra:
+
+* Mejoras creativas. (1.5 punto)
+Justifique aquí qué ha realizado extra para merecer más puntuación.
