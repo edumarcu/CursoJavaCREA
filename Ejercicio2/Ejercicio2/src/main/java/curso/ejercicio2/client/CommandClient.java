@@ -17,10 +17,11 @@ public class CommandClient {
     private static Socket socket;
     private static ObjectOutputStream out;
     private static BufferedOutputStream bos;
-    private ObjectInputStream in;
+    private static ObjectInputStream in;
     private static BufferedInputStream bis;
 
-    public void createConexion() throws Exception {
+    public static void main(String[] args) throws Exception {
+
 
         socket = new Socket("127.0.0.1", 3450);
         bos = new BufferedOutputStream(socket.getOutputStream());

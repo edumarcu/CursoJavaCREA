@@ -25,11 +25,27 @@ public class RunServer {
         server.start();
         Thread.sleep(1000);
 
+//        System.out.println("Iniciando cliente");
+        Thread client = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    CommandClient.main(new String[]{});
+                } catch (Exception e) {
+                    System.err.println("Server Error: ");
+                    e.printStackTrace(System.err);
+                }
+            }
+        });
+        client.setDaemon(true);
+        client.start();
+        Thread.sleep(1000);
+
         System.out.println();
         System.out.println("Iniciando Librería");
 //      Por ahora solo creamos una, en el servidor, se podria hacer un commando de crear..
         CommandClient commandClient = new CommandClient();
-        commandClient.createConexion();
+        //CcommandClient.createConexion();
 
         CommandClient library = commandClient;
 
