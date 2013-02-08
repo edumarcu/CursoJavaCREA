@@ -20,8 +20,7 @@ public class CommandClient {
     private static ObjectInputStream in;
     private static BufferedInputStream bis;
 
-    public static void main(String[] args) throws Exception {
-
+    public void createConexion() throws Exception {
 
         socket = new Socket("127.0.0.1", 3450);
         bos = new BufferedOutputStream(socket.getOutputStream());

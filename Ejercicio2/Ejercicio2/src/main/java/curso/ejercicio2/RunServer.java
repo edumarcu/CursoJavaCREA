@@ -25,30 +25,14 @@ public class RunServer {
         server.start();
         Thread.sleep(1000);
 
-//        System.out.println("Iniciando cliente");
-        Thread client = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    CommandClient.main(new String[]{});
-                } catch (Exception e) {
-                    System.err.println("Server Error: ");
-                    e.printStackTrace(System.err);
-                }
-            }
-        });
-        client.setDaemon(true);
-        client.start();
-        Thread.sleep(1000);
-
         System.out.println();
         System.out.println("Iniciando Librería");
 //      Por ahora solo creamos una, en el servidor, se podria hacer un commando de crear..
         CommandClient commandClient = new CommandClient();
-        //CcommandClient.createConexion();
+        commandClient.createConexion();
 
         CommandClient library = commandClient;
-
+        System.out.println("gola");
         System.out.println();
         System.out.println("Añadiendo Libros");
         library.addBook(new Book("0 7475 5819 1", "Harry Potter and the philosopher's stone", 1997, "J. K. Rowling"));
