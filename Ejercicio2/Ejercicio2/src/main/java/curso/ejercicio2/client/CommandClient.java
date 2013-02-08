@@ -39,7 +39,7 @@ public class CommandClient {
         //System.out.println("-> in");
        
         String message = (String) in.readObject();
-        //System.out.println("Conexion stablished: " + message);
+        System.out.println("Conexion stablished: " + message);
         
         //System.out.println("OK!");
 
