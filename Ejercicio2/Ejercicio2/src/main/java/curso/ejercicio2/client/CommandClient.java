@@ -15,18 +15,33 @@ import java.util.List;
 public class CommandClient {
 
     private static Socket socket;
-    private static ObjectOutputStream out;
     private static BufferedOutputStream bos;
-    private static ObjectInputStream in;
+    private static ObjectOutputStream out;
     private static BufferedInputStream bis;
-
+    private static ObjectInputStream in;
+    
     public void createConexion() throws Exception {
 
+        System.out.println("Creating client socket...");
         socket = new Socket("127.0.0.1", 3450);
+        //System.out.println("-> socket");
         bos = new BufferedOutputStream(socket.getOutputStream());
+        //System.out.println("-> bos");
         out = new ObjectOutputStream(bos);
+        //System.out.println("-> out");
+        
+        out.writeObject("");
+        out.flush();
+        
         bis = new BufferedInputStream(socket.getInputStream());
+        //System.out.println("-> bis");
         in = new ObjectInputStream(bis);
+        //System.out.println("-> in");
+       
+        String message = (String) in.readObject();
+        //System.out.println("Conexion stablished: " + message);
+        
+        //System.out.println("OK!");
 
     }
 

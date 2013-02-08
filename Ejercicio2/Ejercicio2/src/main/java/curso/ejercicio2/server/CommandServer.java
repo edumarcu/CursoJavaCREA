@@ -21,14 +21,21 @@ public class CommandServer {
 
         while (true) {
             Socket socket = server.accept();
-            System.out.println("New connection received on " + server.getInetAddress() + " " +
-                                              + server.getLocalPort());
+            System.out.println("New connection received on ");
+//                    + server.getInetAddress() + ":" +
+//                    + server.getLocalPort());
 
             BufferedInputStream bis = new BufferedInputStream(socket.getInputStream());
             ObjectInputStream in = new ObjectInputStream(bis);
 
             BufferedOutputStream bos = new BufferedOutputStream(socket.getOutputStream());
             ObjectOutputStream out = new ObjectOutputStream(bos);
+            
+            String message = (String) in.readObject();
+            //System.out.println("Conexion stablished: " + message);
+            
+            out.writeObject("");
+            out.flush();
 
             while (true) {
                 System.out.println("Reading Command.");
