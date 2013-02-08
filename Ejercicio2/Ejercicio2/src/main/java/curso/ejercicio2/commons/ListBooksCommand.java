@@ -1,13 +1,25 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package curso.ejercicio2.commons;
+
+import java.util.List;
 
 /**
  *
- * @author Usuario
+ * @author EM
  */
-public class ListBooksCommand {
+public class ListBooksCommand implements Command {
 
+    private List<Book> books;
+
+    public List<Book> getBooks() {
+        return books;
+    }
+
+    @Override
+    public void execute(Library library) {
+        books = library.list();
+    }
+
+    public List<Book> getPoints() {
+        return books;
+    }
 }

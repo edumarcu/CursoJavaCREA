@@ -11,16 +11,18 @@ import java.net.Socket;
 
 public class CommandServer {
 
+    public static MyLibrary library = new MyLibrary();
+
     public static void main(String[] args) throws Exception {
 
         ServerSocket server = new ServerSocket(3450);
-        MyLibrary points = new MyLibrary();
 
         System.out.println("Server ready");
 
         while (true) {
             Socket socket = server.accept();
-            System.out.println("New connection received.");
+            System.out.println("New connection received on " + server.getInetAddress() + " " +
+                                              + server.getLocalPort());
 
             BufferedInputStream bis = new BufferedInputStream(socket.getInputStream());
             ObjectInputStream in = new ObjectInputStream(bis);
@@ -33,7 +35,7 @@ public class CommandServer {
                 Command command = (Command) in.readObject();
 
                 System.out.println("Executing Command.");
-                command.execute(points);
+                command.execute(library);
 
                 System.out.println("Sending Command.");
                 out.writeObject(command);
