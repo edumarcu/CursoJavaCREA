@@ -22,7 +22,7 @@ public class CommandClient {
     
     public void createConexion() throws Exception {
 
-        System.out.println("Creating client socket...");
+        //System.out.println("Creating client socket...");
         socket = new Socket("127.0.0.1", 3450);
         //System.out.println("-> socket");
         bos = new BufferedOutputStream(socket.getOutputStream());

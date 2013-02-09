@@ -22,4 +22,9 @@ public class ListBooksCommand implements Command {
     public List<Book> getPoints() {
         return books;
     }
+
+    @Override
+    public String toString() {
+        return getClass().getSimpleName();
+    }
 }

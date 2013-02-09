@@ -6,7 +6,6 @@ package curso.ejercicio2.commons;
  */
 public class ContainsBookCommand implements Command {
     private boolean contains = false;
-
     private Book book;
 
     public ContainsBookCommand(Book book) {
@@ -24,5 +23,10 @@ public class ContainsBookCommand implements Command {
 
     public boolean isOk() {
         return contains;
+    }
+
+    @Override
+    public String toString() {
+        return getClass().getSimpleName();
     }
 }

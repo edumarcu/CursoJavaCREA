@@ -7,7 +7,6 @@ package curso.ejercicio2.commons;
 public class AddBookCommand implements Command {
 
     private boolean ok = false;
-
     private Book book;
 
     public AddBookCommand(Book book) {
@@ -26,5 +25,10 @@ public class AddBookCommand implements Command {
 
     public boolean isOk() {
         return ok;
+    }
+
+    @Override
+    public String toString() {
+        return getClass().getSimpleName();
     }
 }

@@ -21,30 +21,34 @@ public class CommandServer {
 
         while (true) {
             Socket socket = server.accept();
-            System.out.println("New connection received on ");
-//                    + server.getInetAddress() + ":" +
-//                    + server.getLocalPort());
+            System.out.println("New connection received on "
+                    + socket.getInetAddress().getHostAddress() + ":" +
+                    + socket.getLocalPort());
+            
+            System.out.println("from  "
+                    + socket.getInetAddress());
 
             BufferedInputStream bis = new BufferedInputStream(socket.getInputStream());
             ObjectInputStream in = new ObjectInputStream(bis);
 
-            BufferedOutputStream bos = new BufferedOutputStream(socket.getOutputStream());
-            ObjectOutputStream out = new ObjectOutputStream(bos);
-            
             String message = (String) in.readObject();
             //System.out.println("Conexion stablished: " + message);
+            
+            BufferedOutputStream bos = new BufferedOutputStream(socket.getOutputStream());
+            ObjectOutputStream out = new ObjectOutputStream(bos);
             
             out.writeObject("");
             out.flush();
 
-            while (true) {
-                System.out.println("Reading Command.");
+            while (true) {  
+                System.out.println();
+                System.out.println("Waiting Command.");
                 Command command = (Command) in.readObject();
 
-                System.out.println("Executing Command.");
+                System.out.println("Executing Command: " + command);
                 command.execute(library);
 
-                System.out.println("Sending Command.");
+                System.out.println("Sending Command response." + command);
                 out.writeObject(command);
                 out.flush();
             }
