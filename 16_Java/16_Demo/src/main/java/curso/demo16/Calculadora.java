@@ -43,10 +43,4 @@ public class Calculadora {
     public int getRes() {
         return res;
     }
-
-    public void setRes(int res) {
-        this.res = res;
-    }
-
-
 }
