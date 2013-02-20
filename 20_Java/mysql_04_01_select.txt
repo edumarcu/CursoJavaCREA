@@ -1,0 +1,93 @@
+SELECT u.name, t.description
+  FROM users u, tasks t
+ WHERE u.id = t.user_id;
+
+SELECT u.name, t.description
+  FROM users u JOIN tasks t
+    ON u.id = t.user_id;
+
+SELECT u.name, t.description
+  FROM users u JOIN tasks t
+ USING (id);
+
+SELECT u.name, t.description
+  FROM users u NATURAL JOIN tasks t;
+
+SELECT u.name, t.description
+  FROM users u LEFT OUTER JOIN tasks t
+    ON u.id = t.user_id;
+
+SELECT u.name, t.description
+  FROM tasks t RIGHT OUTER JOIN users u
+    ON u.id = t.user_id;
+
+
+SELECT u.name, t.description
+  FROM users u RIGHT JOIN tasks t
+    ON u.id = t.user_id;
+
+SELECT u.name,
+       IFNULL(GROUP_CONCAT(t.description), "--sin tareas--") AS tasks
+  FROM users u LEFT OUTER JOIN tasks t
+    ON u.id = t.user_id
+ GROUP BY u.id;
+
+
+---------
+-- Lista de países y sus capitales
+
+SELECT co.name AS país,
+       ci.name AS capital
+  FROM Country co JOIN City ci
+    ON co.capital = ci.id;
+
+---------
+-- Lista de países y sus idiomas
+
+SELECT co.Name AS pais,
+       GROUP_CONCAT(cl.Language) AS idiomas
+  FROM Country co INNER JOIN CountryLanguage cl
+    ON co.Code = cl.CountryCode
+GROUP BY co.Code;
+
+----------
+-- Lista de países en los que se habla español
+
+SELECT co.NAME AS pais
+  FROM Country co JOIN CountryLanguage cl
+    ON co.Code = cl.CountryCode
+ WHERE cl.Language = 'Spanish';
+
+----------
+-- Población que habla Español en cada país
+
+SELECT co.Name AS pais,
+       co.Population,
+       cl.percentage,
+       FORMAT(cl.percentage * co.Population / 100, 2) AS Hispanohablante
+  FROM Country co JOIN CountryLanguage cl
+    ON co.Code = cl.CountryCode
+ WHERE cl.Language = 'Spanish';
+
+----------
+-- 10 Idiomas más hablados
+
+SELECT cl.Language,
+       SUM(cl.percentage * co.Population / 100) AS speakers
+  FROM Country co JOIN CountryLanguage cl
+    ON co.Code = cl.CountryCode
+ GROUP BY cl.Language
+ ORDER BY speakers DESC
+ LIMIT 10;
+
+
+----------
+-- Idiomas hablados por más de 100M de personas
+
+SELECT cl.Language,
+       SUM(cl.percentage * co.Population / 100) AS speakers
+  FROM Country co JOIN CountryLanguage cl
+    ON co.Code = cl.CountryCode
+ GROUP BY cl.Language
+HAVING speakers > 100000000
+ ORDER BY speakers DESC;
