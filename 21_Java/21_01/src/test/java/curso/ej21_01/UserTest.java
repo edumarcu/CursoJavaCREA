@@ -79,4 +79,25 @@ public class UserTest {
         Assert.assertEquals(expected, users);
     }
 
+    @Test
+    public void test_update() throws SQLException {
+        UserDao dao = UserDao.getDao();
+        dao.create(user1);
+        user1.setName("Joselito");
+        dao.update(user1);
+
+        User user = dao.findUserById(1);
+        Assert.assertEquals(user1, user);
+    }
+
+    @Test
+    public void test_delete() throws SQLException {
+        UserDao dao = UserDao.getDao();
+        dao.create(user1);
+        dao.delete(user1);
+
+        User user = dao.findUserById(1);
+        Assert.assertNull(user);
+    }
+
 }

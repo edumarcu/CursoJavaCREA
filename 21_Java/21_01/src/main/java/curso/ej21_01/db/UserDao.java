@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserDao {
@@ -35,12 +36,32 @@ public class UserDao {
         return null;
     }
 
-    public long count() {
+    public long count() throws SQLException {
+        String sql = "SELECT COUNT(*) FROM user";
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        ResultSet rs = stmt.executeQuery();
+
+        if (rs.next()) {
+            return rs.getLong(1);
+        }
         return 0;
     }
 
-    public List<User> findUsersByPage(int page, int usersPerPage) {
-        return null;
+    public List<User> findUsersByPage(int page, int usersPerPage) throws SQLException {
+        String sql = "SELECT id, name FROM user ORDER BY id LIMIT ?,?";
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setLong(1, (page - 1) * usersPerPage);
+        stmt.setLong(2, usersPerPage);
+        ResultSet rs = stmt.executeQuery();
+
+        List<User> users = new ArrayList<User>();
+        while (rs.next()) {
+            User user = new User();
+            user.setId(rs.getLong("id"));
+            user.setName(rs.getString("name"));
+            users.add(user);
+        }
+        return users;
     }
 
     public User create(User user) throws SQLException {
@@ -70,12 +91,31 @@ public class UserDao {
         return null;
     }
 
-    public User update(User user) {
-        return null;
+    public User update(User user) throws SQLException {
+        String sql = "UPDATE  user  SET name = ? WHERE id = ?;";
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setString(1, user.getName());
+        stmt.setLong(2, user.getId());
+
+        int count = stmt.executeUpdate();
+        if (count != 1) { // ERROR
+            return null;
+        } else {
+            return findUserById(user.getId());
+        }
     }
 
-    public boolean delete(User user) {
-        return false;
+    public boolean delete(User user) throws SQLException {
+        String sql = "DELETE FROM user WHERE id = ?;";
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setLong(1, user.getId());
+
+        int count = stmt.executeUpdate();
+        if (count != 1) { // ERROR
+            return false;
+        } else {
+            return true;
+        }
     }
 
 }
