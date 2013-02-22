@@ -1,27 +1,41 @@
 package curso.demo22;
 
-import java.sql.ResultSet;
-import java.util.ArrayList;
+import java.io.Serializable;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Id;
 import javax.persistence.Column;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Query;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name="user")
-public class User {
+public class User implements Serializable {
+
+    private final static long serialVersionUID = 1L;    // lo cambiariamos conforme cambia la clase
 
     @Id
+    @Column(name="id")
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private long id;
+
     @Column(length=255, name="name")
     private String name;
+
+//    @Transient  // ignora el campo
+    @OneToMany(cascade=CascadeType.ALL, fetch= FetchType.LAZY)
+    @JoinColumn(name="user_id",referencedColumnName="id", nullable=false)
+    private List<Task> tasks;
 
     public User() {
         id = 0;
@@ -49,6 +63,14 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Task> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
     }
 
     // Equals & HashCode
@@ -92,9 +114,10 @@ public class User {
     }
 
     public static List<User> findByPage(EntityManager em, int page, int usersByPage) {
-         Query q = em.createNativeQuery("SELECT id, name FROM User u ORDER BY id LIMIT " + page + "," + usersByPage);
+        Query q = em.createNativeQuery("SELECT id, name FROM User u ORDER BY id LIMIT " +
+                (page - 1) * usersByPage + "," + usersByPage, User.class);
 
-        return new List(q.getResultList();
+        return  q.getResultList();
     }
 
     public static long count(EntityManager em) {

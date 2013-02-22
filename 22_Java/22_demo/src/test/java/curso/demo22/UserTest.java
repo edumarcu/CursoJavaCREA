@@ -8,6 +8,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -32,6 +33,11 @@ public class UserTest {
 
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("cursoDemoPU");
         em = emf.createEntityManager();
+    }
+
+    @After
+    public void closeEM() {
+        em.close();
     }
 
     private User user1 = new User(1, "Edu");
