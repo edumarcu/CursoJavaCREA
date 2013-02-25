@@ -40,7 +40,7 @@ public class Demo07 {
         em.flush();
         System.out.println("Persisted Task: " + em.find(Task.class, task.getId()));
 
-        et.commit();
+        //et.commit();
         System.out.println();
         System.out.println("USER - TASKS");
         em.refresh(user); // <-------------------------------

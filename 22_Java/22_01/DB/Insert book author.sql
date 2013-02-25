@@ -1,0 +1,2 @@
+INSERT INTO books(isbn, title, year, author_id) VALUES ('0 7475 5819 1', 'Harry Potter and the philosopher\'s stone', 1997, 1);
+INSERT INTO authors(name, birthday, country) VALUES ("J. K . Rowling", '1947-1-15', 'UK');
