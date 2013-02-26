@@ -1,9 +1,11 @@
 package curso.ej22_01;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.TypedQuery;
 
 @Entity
 @Table(name="books")
@@ -123,6 +126,63 @@ public class Book implements Serializable {
     // Active Record
     public static boolean contains(EntityManager em, Book b) {
         return (em.find(Book.class, b.getId()) != null);
+    }
+
+    public static long count(EntityManager em) {
+        String sql = "SELECT COUNT(b) FROM Book b";
+        TypedQuery<Long> query = em.createQuery(sql, Long.class);
+        Long count = query.getSingleResult();
+        return count;
+    }
+
+    public static List<Book> list(EntityManager em) {
+        String sql = "SELECT b FROM Book b";
+        TypedQuery<Book> query = em.createQuery(sql, Book.class);
+        return query.getResultList();
+    }
+
+    public boolean create(EntityManager em) {
+        EntityTransaction et = em.getTransaction();
+        try {
+            et.begin();
+            createNoTransaction(em);
+            et.commit();
+            return true;
+
+        } catch (Exception e) {
+            if (et.isActive()) {
+                et.rollback();
+            }
+
+            return false;
+        }
+    }
+
+    public void createNoTransaction(EntityManager em) {
+        em.persist(this);
+        em.flush();
+    }
+
+    public boolean remove(EntityManager em) {
+        EntityTransaction et = em.getTransaction();
+        try {
+            et.begin();
+            removeNoTransaction(em);
+            et.commit();
+            return true;
+
+        } catch (Exception e) {
+            if (et.isActive()) {
+                et.rollback();
+            }
+
+            return false;
+        }
+    }
+
+    public void removeNoTransaction(EntityManager em) {
+        em.remove(this);
+        em.flush();
     }
 
 }

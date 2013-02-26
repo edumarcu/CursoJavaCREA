@@ -1,6 +1,7 @@
 package curso.ej02_01;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -122,13 +123,52 @@ public class Book implements Serializable {
         return String.format("Book: %s (%d) by %s - ISBN %s", this.title, this.year, authorName, this.isbn);
     }
 
+    // Clone
+    @Override
+    protected Book clone() {
+        Book book = new Book();
+        book.setId(this.getId());
+        book.setIsbn(this.getIsbn());
+        book.setTitle(this.getTitle());
+        book.setYear(this.getYear());
+        book.setAuthor(this.getAuthor());
+        return book;
+    }
+
     //
     // Active Record
     //
 
     // Queries
+    public static List<Book> findAll(EntityManager em) {
+        String sql = "SELECT x FROM Book x ORDER BY x.title";
+        TypedQuery<Book> query = em.createQuery(sql, Book.class);
+        return query.getResultList();
+    }
+
     public static Book findById(EntityManager em, long id) {
         return em.find(Book.class, id);
+    }
+
+    public static Book findByISBN(EntityManager em, String isbn) {
+        String sql = "SELECT x FROM Book x WHERE x.isbn = :isbn";
+        TypedQuery<Book> query = em.createQuery(sql, Book.class);
+        query.setParameter("isbn", isbn);
+        return query.getSingleResult();
+    }
+
+    public static List<Book> findByYear(EntityManager em, int year) {
+        String sql = "SELECT x FROM Book x WHERE x.year = :year ORDER BY x.title";
+        TypedQuery<Book> query = em.createQuery(sql, Book.class);
+        query.setParameter("year", year);
+        return query.getResultList();
+    }
+
+    public static List<Book> findByAuthor(EntityManager em, Author author) {
+        String sql = "SELECT x FROM Book x WHERE x.author = :author";
+        TypedQuery<Book> query = em.createQuery(sql, Book.class);
+        query.setParameter("author", author);
+        return query.getResultList();
     }
 
     public static boolean containsBook(EntityManager em, long id) {
@@ -148,9 +188,9 @@ public class Book implements Serializable {
         EntityTransaction et = em.getTransaction();
         try {
             et.begin();
-            createNoTransaction(em);
+            boolean res = createNoTransaction(em);
             et.commit();
-            return true;
+            return res;
         } catch (Exception e) {
             if (et.isActive()) {
                 et.rollback();
@@ -161,9 +201,40 @@ public class Book implements Serializable {
         }
     }
 
-    public void createNoTransaction(EntityManager em) {
-        em.persist(this);
-        em.flush();
+    public boolean createNoTransaction(EntityManager em) {
+        if (em.contains(this)) {
+            return false;
+        } else {
+            em.persist(this);
+            em.flush();
+            return true;
+        }
     }
 
+    public boolean remove(EntityManager em) {
+        EntityTransaction et = em.getTransaction();
+        try {
+            et.begin();
+            boolean res = removeNoTransaction(em);
+            et.commit();
+            return res;
+        } catch (Exception e) {
+            if (et.isActive()) {
+                et.rollback();
+            }
+//            throw new Exception("Error saving user");
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean removeNoTransaction(EntityManager em) {
+        if (em.find(Book.class, this.getId()) != null) {
+            em.remove(this);
+            em.flush();
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

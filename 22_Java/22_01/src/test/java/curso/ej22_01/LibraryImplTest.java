@@ -1,6 +1,7 @@
 package curso.ej22_01;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -10,6 +11,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import org.junit.After;
+import org.junit.AfterClass;
 import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -49,16 +51,7 @@ public class LibraryImplTest {
     }
 
     @Before
-    public void emptyTables() {
-        try {
-            Connection conn = ConnectionManager.getConnection();
-            Statement stmt = conn.createStatement();
-//            stmt.execute("TRUNCATE TABLE books");
-//            stmt.execute("TRUNCATE TABLE authors");
-        } catch (Exception e) {
-            System.err.println("Error Creating DB");
-        }
-
+    public void createEntityManager() {
 //        System.out.println("Creating ORM...");
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("libraryPU");
         em = emf.createEntityManager();
@@ -70,51 +63,80 @@ public class LibraryImplTest {
         em.close();
     }
 
+    @Before
+    public void prepareTables() throws SQLException {
+        Connection conn = ConnectionManager.getConnection();
+        Statement stmt = conn.createStatement();
+        Boolean result = stmt.execute("TRUNCATE TABLE authors");
+//        System.out.println("DELETE authors = " + result);
+
+        stmt = conn.createStatement();
+        result = stmt.execute("TRUNCATE TABLE books");
+//        System.out.println("DELETE books = " + result);
+
+        stmt = conn.createStatement();
+        result = stmt.execute("INSERT INTO authors(name, birthday, country) " +
+                "VALUES ('J. K . Rowling', '1947-1-15', 'UK')");
+//        System.out.println("INSERT author JKR = " + result);
+
+        stmt = conn.createStatement();
+        result = stmt.execute("INSERT INTO books(isbn, title, year, author_id) " +
+                "VALUES ('0 7475 5819 1', 'Harry Potter and the philosopher\\'s stone', 1997, 1)");
+//        System.out.println("INSERT bhp1 = " + result);
+    }
+
     @Test
     public void test_containsBook_bookNotExists() {
-         assertFalse(Book.contains(em, bhp2));
+         assertFalse(Book.contains(em, bga));
     }
 
     @Test
     public void test_containsBook_bookExists() {
-        System.out.println("bhp1: id = " + bhp1.getId());
-        System.out.println("books(1): id = " + em.find(Book.class, bhp1.getId()).getId() );
          assertTrue(Book.contains(em, bhp1));
     }
 
+    @Test
+    public void test_count_noAddedBooks() {
+        assertEquals(1, Book.count(em));
+    }
 
-//    @Test
-//    public void test_addBook_bookNotExists() {
-//        boolean result = library.addBook(bhp1);
-//        assertTrue(result);
+    @Test
+    public void test_list_noAddedBooks() {
+        List<Book> expected = new ArrayList<>();
 
-//        assertTrue(library.containsBook(bhp1));
-//        assertEquals(1, library.list().size());
+        expected.add(bhp1);
 
-//        assertEquals(bhp1, library.list().get(0));
-//    }
-//
-//    @Test
-//    public void test_addBook_bookExists() {
-//        library.addBook(bhp1);
-//        boolean result = library.addBook(bhp1);
-//        assertFalse(result);
-//
-//        assertEquals(1, library.list().size());
-//    }
-//
-//    @Test
-//    public void test_removeBook() {
-//        library.addBook(bhp1);
-//        boolean result = library.removeBook(bhp1);
-//        assertTrue(result);
-//
-//        result = library.removeBook(bhp1);
-//        assertFalse(result);
-//
-//        assertFalse(library.containsBook(bhp1));
-//        assertEquals(0, library.list().size());
-//    }
+        assertEquals(1, Book.list(em).size());
+        assertEquals(expected, Book.list(em));
+    }
+
+
+    @Test
+    public void test_add_bookNotExists() {
+        long nBooks  = Book.list(em).size();
+        assertTrue(bhp2.create(em));
+
+        assertTrue(Book.contains(em, bhp2));
+        assertEquals(nBooks + 1, Book.list(em).size());
+    }
+
+    @Test
+    public void test_add_bookExists() {
+        long nBooks  = Book.list(em).size();
+        assertFalse(bhp1.create(em));
+
+        assertTrue(Book.contains(em, bhp1));
+        assertEquals(nBooks, Book.list(em).size());
+    }
+
+    @Test
+    public void test_remove_bookExists() {
+        long nBooks  = Book.list(em).size();
+        assertTrue(bhp1.remove(em));
+
+        assertFalse(Book.contains(em, bhp1));
+        assertEquals(nBooks - 1, Book.list(em).size());
+    }
 //
 //    @Test
 //    public void test_list() {
