@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" >
+  <title>My first HTML OLA KE ASE Page</title>
+  <script type="text/javascript" src="foo.js"></script>
+
+  <style type="text/css">
+    html {
+      font-family: arial;
+      width:  100%;
+      border: 1px solid black;
+      background-color: #AAA;
+    }
+
+    body {
+/*
+      margin: 20px 10px 10px 10px;
+      margin-top: 20px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      margin-left: 10px;
+*/
+      margin: 20px auto;
+      padding: 20px;
+
+      width: 400px;
+      border: 1px solid black;
+      background-color: #FFF;
+    }
+
+    h2, h3, h4 {
+      color: grey;
+    }
+
+    #enlaces {
+      color: green;
+    }
+
+    .tiny {
+      font-size: 9px;
+    }
+
+    body > .green {
+      color: green;
+    }
+
+    a:hover {
+      color:black;
+    }
+
+    h2:first-of-type {
+      color:yellow;
+    }
+  </style>
+
+</head>
+<body>
+  <!-- Comment -->
+  <h1 id="top">1 OLA KE ASE</h1>
+  <h2>1.1 Aprende HTML o ke ase</h2>
+  <h3>1.1.1 Arr</h3>
+
+  <h2>1.2 Otro encabezado</h2>
+  <p class="tiny">
+    Esto es un párrafo &lt;p&#62;.
+  </p>
+  <p class="tiny green">
+    Esto es otro p&aacute;rrafo.
+  </p>
+  <p>
+Lorem ipsum dolor sit amet,
+consectetur adipiscing elit.
+Proin nisi quam, aliquet vitae                            suscipit id, tempor ac lorem. Integer ultrices rhoncus ligula ac lobortis. Curabitur facilisis adipiscing nisi, non blandit sapien elementum tempus.
+    <br />
+Cras ultricies ultricies orci, in elementum nulla ornare sed. Nam nisl ante, venenatis ut eleifend at, egestas in risus. Nulla fringilla ullamcorper tortor eget mollis. In tempor lacus eget neque vehicula eu adipiscing neque dignissim. Curabitur fringilla varius mauris ut imperdiet.
+  </p>
+  <p>
+Morbi rhoncus varius arcu in porta. Etiam non nunc a turpis posuere fermentum. Integer in massa urna. Nullam luctus, lacus sed posuere convallis, nisl nisi pretium odio, sit amet fermentum neque est vitae sapien. Sed sed nulla quis lectus hendrerit sodales. Vestibulum consectetur, lectus eget pellentesque ornare, nisl ante convallis erat, in varius urna ligula ut dolor. Duis mattis bibendum velit, eu faucibus ante ullamcorper ut. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec elementum blandit venenatis. In dictum sem in augue condimentum nec laoreet velit varius.
+  </p>
+
+  <h2>Listas</h2>
+  <h3>Lista Ordenada</h3>
+  <ol class="green">
+    <li>Primer elemento</li>
+    <li>Segundo elemento</li>
+    <li>Tercer elemento</li>
+  </ol>
+
+  <h3>Lista Desordenada</h3>
+  <ul>
+    <li class="green">Primer elemento</li>
+    <li>Segundo elemento</li>
+    <li>Tercer elemento</li>
+  </ul>
+
+
+  <h3>Lista Compuesta</h3>
+  <ul>
+    <li>Primer elemento
+      <ol>
+        <li>Arrr</li>
+        <li>Beee</li>
+        <li>Ceeee</li>
+      </ol>
+    </li>
+    <li>Segundo elemento</li>
+    <li>Tercer elemento</li>
+  </ul>
+
+  <h3>Lista de Definiciones</h3>
+  <dl>
+    <dt>HTML</dt>
+    <dd>Hyper Text Markup Language</dd>
+    <dt>CSS</dt>
+    <dd>Cascade Style Sheets</dd>
+  </dl>
+
+  <h2>Tablas</h2>
+  <h3>Tabla sencilla</h3>
+  <table>
+    <tr>
+      <th>*</th>
+      <th>4</th>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>8</td>
+    </tr>
+  </table>
+
+  <h3>Tabla completa</h3>
+  <table>
+    <caption>Tabla de multiplicación del 4</caption>
+    <thead>
+      <tr>
+        <th>*</th>
+        <th>4</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>1</th>
+        <td>4</td>
+      </tr>
+      <tr>
+        <th>2</th>
+        <td>8</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="2">N * 4</td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <h2 id="enlaces">Enlaces</h2>
+  <ul>
+    <li><a href="http://www.w3c.org">W3C</a></li>
+    <li><a href="/www.w3c.org">Ruta absoluta al servidor</a></li>
+    <li><a href="html5.jpeg">Ruta relativa a este recurso</a></li>
+    <li><a href="#top">Ruta relativa a esta página</a></li>
+  </ul>
+
+  <h2>Imágenes</h2>
+  <img src="html5.jpeg" alt="HTML5 Logo" title="HTML5 logo"/>
+  <img src="html5.jpeg_" alt="HTML5 Logo" title="HTML5 logo"/>
+
+  <h2>Formularios</h2>
+  <form>
+    <input type="text" name="campo1" value="valor por defecto" />
+    <input type="hidden" name="campo2" value="valor por defecto" />
+    <textarea name="text1" >TEXTO</textarea>
+    <input type="submit" name="enviar" value="Enviar formulario" />
+  </form>
+
+  <h2>Estilo</h2>
+  <p>
+    Esto es un texto <strong>Importante</strong>
+    y esto un <em>remarcado</em>.
+  </p>
+  <p>
+    Puedo cambiar el estilo en <font color="red">HTML</font>.
+  </p>
+  <div>
+    Esto es un texto.
+    <span class="tiny">Y esto un texto pequeño</span>
+  </div>
+
+</body>
+</html>

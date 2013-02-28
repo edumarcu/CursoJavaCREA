@@ -1,0 +1,425 @@
+@CHARSET "UTF-8";
+
+/* Begin Typography & Colors */
+
+* {
+	margin: 0px;
+	padding: 0px;
+	}
+
+IMG {
+	border: 0px;
+	max-width: 550px;
+	}
+
+body {
+	font-family: 'Lucida Sans Unicode', Verdana, Arial;
+	background-color: white;
+	color: #2E3436;
+	margin: 0px auto 0px auto;
+	}
+
+/* Header */
+
+#header {
+	font-family: 'Bitstream Vera Sans', 'Lucida Sans Unicode', Verdana, Arial;
+	text-align: center;
+	}
+
+#header-content {
+	width: 760px;
+	text-align: left;
+	margin: 0px auto 0px auto;
+	}
+
+#header H1 A {
+	color: #204A87;
+	text-decoration: none;
+	font-size: 36pt;
+	font-weight: normal;
+	letter-spacing: .30pt;
+
+	position: absolute;
+	top: 0px;
+	}
+
+#header-logo {
+	background-image: url('images/merluza-logo.png');
+	background-repeat: no-repeat;
+	background-position: top;
+	
+	float: left;
+	position: absolute;
+	top: 0px;
+	z-index: 200;
+
+	height: 81px;
+	width: 81px;
+	margin-top: 15px;
+	}
+	
+#header-title {
+	text-align: left;
+	height: 70px;
+	
+	margin-left: 90px;
+	margin-bottom: -70px;
+	line-height: 85px;
+
+        position: absolute;
+        top: 0px;
+        z-index: 200;
+	}
+
+#header-caption {
+	text-align: right;
+	font-family: 'FreeSans', 'Lucida Sans Unicode', Verdana, Arial;
+	font-size: 10pt;
+	font-weight: bold;
+	letter-spacing: 0pt;
+	color: #FCAF3E;
+	
+	height: 70px;
+	line-height: 75pt;
+	
+	margin-top: -45px;
+	margin-bottom: 0px;
+	margin-right: 20px;
+	}
+	
+/* Menu */
+#menu {
+	height: 20px;
+	width: 100%;
+	margin-top: 60px;
+	margin-bottom: -80px;
+	
+	position:relative;
+	z-index: 100;
+	
+	border-top: 1px solid #4E9A06;
+	border-bottom: 1px solid #4E9A06;
+	background-color: #73D216;
+	}
+
+#menu-center {
+	height: 20px;
+	width: 100%;
+	margin: 0px auto 0px auto;
+	
+	float: left;
+	}
+
+#menu-center-text {
+	height: 20px;
+	width: 725px;
+	margin: 0px auto 0px auto;
+	
+	color: #4E9A06;
+	font-family: 'FreeSans', 'Lucida Sans Unicode', Verdana, Arial;
+	font-size: 11pt;
+	font-weight: bold;
+	letter-spacing: 0pt;
+	text-align: right;
+	
+	line-height: 17pt;
+	}
+
+#menu-center-text A{
+	text-decoration: none;
+	color: #4E9A06;
+	}
+
+#menu-shadow {
+	height: 5px;
+	width: 100%;
+	margin: 21px auto -5px auto;
+	
+	background-image: url('images/menu-bar-shadow.png');
+	background-repeat: repeat-x;
+	background-position: top;
+	
+	}
+	
+/* content */
+
+#content-container {
+	margin: 0px auto;
+	padding: 0px;
+	width: 800px;
+	height: 100%;
+	
+	position:relative;
+	z-index: 10;
+	
+	background-image: url('images/bg.png');menu-bar-shadow.png
+	background-repeat: repeat-y;
+	background-position: center;
+	}
+
+#content {
+	padding-top: 10px;
+	margin: 0px auto;
+	width: 760px;
+	text-align: justify;
+	
+	position:relative;
+	z-index: 300;
+	}
+
+#texto {
+	width: 580px;
+	padding-left: 165px;
+	}
+
+#content .post {
+	margin-bottom: 30px;
+	}
+
+#content .post H2 {
+	margin: 0px;
+	padding: 0px;
+	margin-top: 5px;
+	font-size: 14pt;
+	font-family: 'FreeSans', Sans, Verdana;
+	
+	border-bottom: 1px solid #204A87;
+	
+	height: 14pt;
+	line-height: 14pt;
+}
+
+#content .post H2 A {
+	color: #2E3436;
+	text-decoration: none;
+	}
+
+#content .entry {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-size: 9pt;
+	font-family: 'Bitstream Vera Sans', Sans, Verdana;
+	line-height: 15pt;
+	color: #2E3436;
+}
+
+#content .entry A {
+	color: #2E3436;
+	text-decoration: none;
+	background-color: #D3D7CF; /*#729FCF;*/
+	border-bottom: 2px dotted #729FCF;
+	padding: 0px 3px;
+	margin: 0px -3px;
+	}
+
+#content .entry P {
+	padding-top: 15px;
+	}
+
+#content .entry pre {
+	font-size: 8pt;
+	font-family: monospace;
+	line-height: 9pt;
+	padding: 20px;
+	border: 1px dashed #888A85;
+	background-color: #D3D7CF;
+	}
+
+#content .postdate {
+	color: #F57900;
+	
+	font-size: 10pt;
+	text-align: right;
+	
+	height: 10pt;
+	width: 100%;
+	margin-top: -12pt;
+	padding: 0px;
+}
+
+#content .postmetadata {
+	font-size: 7pt;
+	padding: 0px 20px;
+	border-bottom: 2px solid #204A87;
+}
+
+#content .postmetadata A {
+	color: #4E9A06;
+	text-decoration: none;
+}
+
+#content H3 {
+	margin: 10px 0px;
+}
+
+/* Submit Form */
+
+#content INPUT, #content TEXTAREA {
+	color: #2E3436;
+	border: 1px solid #CE5C00;
+	margin: 5px 0px;
+	padding: 5px 10px;
+	max-width: 550px;
+}
+
+#content INPUT:FOCUS, #content TEXTAREA:FOCUS {
+	border: 1px solid #F57900;
+	background-color: white;
+}
+
+#content TEXTAREA:FOCUS {
+	background: transparent url(images/merluzabgbig.png) no-repeat right top;
+}
+
+#content INPUT[type="submit"] {
+	border: 0px;
+	height: 25px;
+	padding-right: 50px;
+	background: #3465A4 url(images/submitbg.png) no-repeat right top;
+	color: #D3D7CF;
+	font-weight: bold;
+}
+
+/* Sidebar */
+
+#sidebar {
+	font-size: 7pt;
+	width: 150px;
+	height: 0px;
+	padding: 5px;
+	margin: 0px;
+
+	font-size-adjust: none;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	line-height: normal;
+	text-align: left;
+	}
+
+#sidebar input {
+	max-width: 80px;
+	padding: 3px;
+	font-size: 7pt;
+	}
+
+#sidebar INPUT[type="submit"] {
+        padding: 0px;
+	margin: 0px;
+        background: none;
+        color: #2E3436;
+        font-weight: bold;
+}
+
+#sidebar h2 {
+	font-size: 10pt;
+	padding: 0px;
+	margin: 0px;
+	margin-top: 10px;
+	}
+
+#sidebar ul {
+	padding-left: 5px;
+	}
+
+#sidebar ul li {
+	list-style-image: none;
+	list-style-type: none;
+	}
+
+#sidebar ul ul li:before {
+	content: "»";
+	color: #CE5C00;
+	}
+
+#sidebar a {
+	text-decoration: none;
+	color: #F57900;
+	}
+
+/* Footer */
+#footer-container {
+	border-top: 1px solid #204A87;
+	border-bottom: 1px solid #204A87;
+	height: 40px;
+	width: 100%;
+}
+
+#footer {
+	margin: 5px auto;
+	font-size: 8pt;
+	font-weight: bold;
+	font-family: 'FreeSans', Sans, Verdana;
+	color: #204A87;
+	width: 720px;
+	height: 40px;
+	}
+
+#footer a {
+	text-decoration: none;
+	color: #F57900;
+	}
+
+#footer .feedicon {
+	float: right;
+	margin-top: 10px;
+	}
+
+/* Comments */
+
+#comments-container {
+	width: 600px;
+}
+
+
+.commentlist A{
+	color: white;
+	text-decoration: none;
+	border-bottom: 1px dotted #FF8800;
+}
+
+.commentlist LI {
+	list-style-type: none;
+	background: transparent url(images/merluzabg.png) no-repeat right top;
+}
+
+.commentlist .alt {
+	background: transparent url(images/merluzabg.png) no-repeat left top;
+}
+
+#commentbox {
+	padding: 0px 10px 0px 5px;
+	margin: 25px 25px;
+	background: #8AE234;
+	border-right: 2px solid black;
+	font-size: 10pt;
+	min-height: 55px;
+}
+
+#commentbox p{
+	padding-left: 20px;
+}
+.alt #commentbox {
+	border-right: 0px;
+	background: #729FCF;
+	border-left: 3px solid black;
+}
+
+.commentlist STRONG {
+	font-size: 12pt;
+	line-height: 12pt;
+	font-weight: bold;
+	display: inline-table;
+	margin-bottom: 10px;
+}
+.commentlist SMALL {
+	text-align: right;
+	margin-bottom: -20pt;
+	display: inline-table;
+	color: white;
+	width: 100%;
+}
+
+.commentlist A{
+	border-bottom: 0px;
+}

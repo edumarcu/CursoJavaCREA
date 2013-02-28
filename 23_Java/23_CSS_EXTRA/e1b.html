@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<title>Exercise 3.b  </title>
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+
+	<!-- v------------ Aquí se define qué hojas de estilo estamos usando -->
+	<link rel='stylesheet' href='e1b-style.css' type='text/css' media='all' />
+
+
+</head>
+<body>
+	<div id="menu">
+		<a id="top"></a>
+		<div id="menu-center"><div id="menu-center-text">
+			<a href="../index.html"> &lt;-- Back</a>
+		</div></div>
+		<div id="menu-shadow"></div>
+	</div>
+	<div id="header">
+		<div id="header-content">
+			<div id="header-title" >
+				<h1><a href="/ejercicios/chapter3/e1b.html">Ejercicio_3b</a></h1>
+			</div>
+			<div id="header-caption">
+				Un ejercicio para diseñar una página web.
+			</div>
+			<div id="header-logo"></div>
+		</div>
+	</div>
+
+
+	<div id="content-container">
+	<div id="content">
+		<div id="sidebar">
+			<ul>
+				<li>
+					<h2>Páginas de interés</h2>
+					<ul>
+						<li><a href="http://es.wikipedia.org/wiki/XHTML">XHTML</a></li>
+					</ul>
+				</li>
+				<li>
+					<h2>Para pasar el rato</h2>
+					<ul>
+						<li><a href="http://xkcd.com">XKCD</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div id="texto">
+			<div class="post" id="post-206">
+				<h2>gems - Terminal Broadcasting</h2>
+				<div class="postdate">February 19, 2009 at 18:02</div>
+				<div class="entry">
+					<p>
+					We had a issue for the next Warp Talk. All the talk will be done with a shell as presentation tool. But people won&#8217;t see the text on the shell trough the cam, as it resolution is limited.
+					</p>
+					<p>
+					<a href="http://people.warp.es/~isaac/blog/">Isaac</a> have found vía <a href="http://debaday.debian.net/2007/01/10/gems-broadcast-your-terminal/">Debian package of the day</a> <strong>Gems</strong>.
+					</p>
+					<p>
+					Gems allows exactly what we need, broadcast a terminal by tcp/ip. Screen would be the first thought, but a ssh connection from unknown people was needed :S.
+					</p>
+					<p>
+					To use gems, install it:
+					</p>
+					<pre>$ sudo aptitude install gems</pre>
+					<p>
+					If you want to broadcast a terminal, you type on that terminal:
+					</p>
+					<pre>
+golo@Macluzo:~$ gems-server -port 9999
+gems-server initialized.
+					</pre>
+					<p>
+					And now, you are broadcasting.
+					</p>
+					<p>
+					If you want to observe a terminal, type:
+					</p>
+					<pre>
+golo@Macluzo:~$ gems-client localhost 9999
+gems-client: Connection established -- Press 'q' to exit.
+					</pre>
+					<p>
+					Notice that localhost should be changed to the server&#8217;s host :D.
+					</p>
+					<p>
+					If you plain to attend this talk, follow our <a href="https://twitter.com/warptalks">Twitter</a>. We&#8217;ll publish server&#8217;s public address and port there.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	<div id="footer-container">
+		<div id="footer">
+			<p>
+				Ejercicio 3.1a powered by <a href="http://es.wikipedia.org/wiki/XHTML">XHTML</a><br />
+				Theme <a href="#">Merluza</a> by <a href="#">Víctor Jiménez</a>
+			</p>
+		</div>
+	</div>
+	</body>
+</html>
+

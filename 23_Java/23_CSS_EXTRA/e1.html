@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- ^·· This line says we are using xhtml 1.1  -->
+<!-- XHTML begins here ··v -->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<!-- Place inside <head /> page's information -->
+<head>
+	<!-- This line helps web browser to render the page. -->
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+	<!-- This is the page's title, it's shown in browser window's title. -->
+	<title>Exercise 3.1</title>
+	<!-- Other things like Stylesheets or javascript are defined here too. -->
+	<style type="text/css">
+		p {
+			width: 600px;
+		}
+		dt {
+			font-weight: bold;
+		}
+		table, td {
+			border: 1px solid black;
+		}
+		table {
+			background-color: #EEE;
+			min-width: 300px;
+		}
+		td {		
+			background-color: #FFE;
+		}
+	</style>
+</head>
+
+<!-- Place inside <body> page's content, what is shown. -->
+<body>
+	<p>
+		<!-- <a /> Is a link to another page. -->
+		<!-- href is an attribute, this one is the destination page. -->
+		<!-- attribute values are delimited by ". -->
+		<!-- The text "Back" is the link's text. -->
+		<a href="../index.html"> &lt;-- Back</a>
+	</p>
+	<!-- <h1 /> Is a title, there's up to 6 title levels <h2 /> <h3 /> <h4 /> ... -->
+	<h1> Exercise 3.1 </h1>
+	<!-- <p /> Is a paragraph. -->
+	<p>
+		In this exercise we are going to review basic <strong>XHTML</strong> syntax.
+	</p>
+	
+	<h2> Text </h2>
+	<p>
+		<strong>XHTML</strong> is about content, not format. That's why
+		<strong>&lt;strong /&gt;</strong> is used instead bold.
+		It's the navigator the one that decide how to render it. If you want to
+		write some italics, just emphasize it with <em>&lt;em /&gt;</em>.
+	</p>
+	<p>
+		A new line in source code doesn't means 
+		a new line in rendered text.
+		Although, with &lt;br /&gt; <br />
+		we can force a new line in rendering.
+	</p>
+	
+	<h2> Lists </h2>
+	<!-- <dl /> Is a Definition List -->
+	<dl>
+		<dt>Unordered List:</dt>
+			<dd>A list without numbers.
+				<!-- <ul /> Is a Unordered List -->
+				<ul>
+					<!-- <li /> Is a List Item -->
+					<li>Uno</li>
+					<li>Dos</li>
+					<!-- Is possible to embed a list inside another list. -->
+					<li>Tres
+					<ul>
+						<li>A</li>
+						<li>B</li>
+						<li>C</li>
+					</ul>
+					</li>
+					<li>Cuatro</li>
+				</ul>
+			</dd>
+		<dt>Ordered List:</dt>
+			<dd>A numbered one.
+				<!-- <ol /> Is a Ordered List -->
+				<ol>
+					<li>Uno</li>
+					<li>Dos</li>
+					<!-- Is possible to mix list types -->
+					<li>Tres
+					<ul>
+						<li>A</li>
+						<li>B</li>
+						<li>C</li>
+					</ul>
+					</li>
+					<li>Cuatro</li>
+				</ol>
+			</dd>
+		<dt>Description list:</dt>
+			<dd>A list with terms and definitions.</dd>
+	</dl>
+	
+	<h2> Tables </h2>
+	<!-- A table is made with rows and columns -->
+	<table>
+		<!-- We can place a title with <caption /> -->
+		<caption>A simple table</caption>
+		<!-- <tr /> is a table row -->
+		<tr>
+			<!-- <td /> is a table cell -->
+			<td>cell 1</td>
+			<td>cell 2</td>
+			<td>cell 3</td>
+		</tr>
+		<tr>
+			<!-- a cell can expand to more than one column -->
+			<td colspan="2">cell 4</td>
+			<!-- a cell can expand to more than one row -->
+			<td rowspan="2">cell 5</td>
+		</tr>
+		<tr>
+			<td>cell 6</td>
+			<td>cell 7</td>
+		</tr>
+	</table>
+	
+	<!-- A table can contain more elements -->
+	<table>
+		<caption>A complete table</caption>
+		<!-- <thead /> is the heading of the table.-->
+		<thead>
+			<tr>
+				<!-- <th /> is a heading's cell -->
+				<th>*</th>
+				<th>1</th>
+				<th>2</th>
+				<th>3</th>
+				<th>4</th>
+			</tr>
+		</thead>
+		<!-- <tbody /> are the table contents -->
+		<tbody>
+			<tr>
+				<th>1</th>
+				<td>1</td>
+				<td>2</td>
+				<td>3</td>
+				<td>4</td>
+			</tr>
+			<tr>
+				<th>2</th>
+				<td>2</td>
+				<td>4</td>
+				<td>6</td>
+				<td>8</td>
+			</tr>
+			<tr>
+				<th colspan="4">Total:</th>
+				<td>12</td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<h2> Images </h2>
+	<p>
+	The following image is distributed under a
+	<a href="http://creativecommons.org/licenses/by-sa/2.0/deed.en">creative commons license.</a>
+	<a href="http://flickr.com/photos/libertinus/161377946/">
+		<img src="../img/flecha.jpg" alt="signal with an arrow" />
+	</a>
+	author:<a href="http://flickr.com/photos/libertinus/">libertinus</a>
+	</p>
+</body>
+</html>

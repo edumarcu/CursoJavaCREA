@@ -1,0 +1,100 @@
+<!--
+
+Ejercicio 02_02
+===============
+
+Abra el proyecto situado en el directorio /var/www/02_02.
+Para ello, vaya a Project >> Open Project.
+Seleccione el directorio /var/www/02_02. Haga click sobre Finish.
+
+Si es la primera vez que utiliza el lenguaje de marcado HTML, realice el
+ejercicio siguiendo las indicaciones del punto a. Si por el contrario, domina
+la edición de HTML, realice los pasos del apartado b. En los dos casos, deberá
+terminar con resultados similares. Una imagen de ejempo la tiene en res/web.png
+
+
+Opción A)
+
+  a.1) Copie el archivo index_a.txt que encontrará en el directorio res a la
+       carpeta superior (Source files).
+
+  a.2) Renombre ese archivo a "index.html". En este archivo, se han sustituido
+       todas las etiquetas html por la cadena "xxxx".
+
+  a.3) Corrija el archivo para que la página final se parezca a la imagen que
+       encontrará en la ruta "res/web.png". Para ello, tendrá que utilizar las
+       etiquetas mostradas en el Ejercicio 1 (es posible que tenga que usar
+       alguna etiqueta más de una vez).
+
+       Como ayuda en esta tarea puede ayudarse del panel tasks que se encuentra
+       en la parte inferior. En ese panel se muestran todos los errores HTML.
+       Recuerde que tendrá que completar tanto las etiquetas de apertura como de
+       cierre.
+
+Opción B)
+
+  b.1) Copie el archivo "index_b.txt", que encontrará en el directorio res a la
+       carpeta superior (Source files).
+
+  b.2) Rellene los huecos entre los comentarios para que la página final
+       se parezca a la imagen que encontrará en la ruta "res/web.png". La página
+       debe estar libre de errores de validación.
+-->
+
+<!--
+     la declaracion "DOCTYPE" permite indicar el tipo de archivo
+     (HTML, XML, ...) y la version con los que estamos trabajando
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+
+<!-- toda página web debe comenzar y terminar con la etiqueta <html> -->
+
+
+    <!-- CABECERA HTML -->
+
+    <!-- la definicion del juego de caracteres usado es vital para evitar
+             errores de codificación -->
+
+        <!-- el titulo HTML aparece en la barra del navegador, en los favoritos,
+             en los resultados de Google,... -->
+
+    <!-- FIN DE LA CABECERA HTML -->
+
+
+    <!-- CUERPO HTML -->
+
+        <!-- banner superior -->
+            <!-- la etiqueta <div> permite agrupar varias etiquetas en un solo
+                 bloque -->
+
+            <!-- deberia existir una y solo una cabecera de mayor nivel -->
+
+        <!-- fin banner superior -->
+
+        <!-- cuerpo de contenidos -->
+
+            <!-- area de datos de la foto -->
+
+                <!-- la imagen propiamente dicha -->
+                     <!-- todas las imagenes deberian tener un
+                          "texto alternativo" por motivos de accesibilidad -->
+
+                <!-- texto de descripcion de la foto -->
+
+                <!-- visualizacion de comentarios -->
+
+                <!-- fin del area de comentarios -->
+
+                <!-- formulario para nuevos comentarios -->
+                    <!-- cuadro de texto para el comentario -->
+                        <!-- botones de previsualizacion y envio -->
+                <!-- fin del formulario para nuevos comentarios -->
+
+        <!-- fin del cuerpo de contenidos -->
+
+        <!-- pie de pagina -->
+
+        <!-- fin del pie de pagina -->
+
+    <!-- FIN DEL CUERPO HTML -->

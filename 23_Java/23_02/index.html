@@ -1,0 +1,167 @@
+<!--
+
+Ejercicio 02_02
+===============
+
+Abra el proyecto situado en el directorio /var/www/02_02.
+Para ello, vaya a Project >> Open Project.
+Seleccione el directorio /var/www/02_02. Haga click sobre Finish.
+
+Si es la primera vez que utiliza el lenguaje de marcado HTML, realice el
+ejercicio siguiendo las indicaciones del punto a. Si por el contrario, domina
+la edición de HTML, realice los pasos del apartado b. En los dos casos, deberá
+terminar con resultados similares. Una imagen de ejempo la tiene en res/web.png
+
+
+Opción A)
+
+  a.1) Copie el archivo index_a.txt que encontrará en el directorio res a la
+       carpeta superior (Source files).
+
+  a.2) Renombre ese archivo a "index.html". En este archivo, se han sustituido
+       todas las etiquetas html por la cadena "xxxx".
+
+  a.3) Corrija el archivo para que la página final se parezca a la imagen que
+       encontrará en la ruta "res/web.png". Para ello, tendrá que utilizar las
+       etiquetas mostradas en el Ejercicio 1 (es posible que tenga que usar
+       alguna etiqueta más de una vez).
+
+       Como ayuda en esta tarea puede ayudarse del panel tasks que se encuentra
+       en la parte inferior. En ese panel se muestran todos los errores HTML.
+       Recuerde que tendrá que completar tanto las etiquetas de apertura como de
+       cierre.
+
+Opción B)
+
+  b.1) Copie el archivo "index_b.txt", que encontrará en el directorio res a la
+       carpeta superior (Source files).
+
+  b.2) Rellene los huecos entre los comentarios para que la página final
+       se parezca a la imagen que encontrará en la ruta "res/web.png". La página
+       debe estar libre de errores de validación.
+-->
+
+<!--
+     la declaracion "DOCTYPE" permite indicar el tipo de archivo
+     (HTML, XML, ...) y la version con los que estamos trabajando
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<!-- toda página web debe comenzar y terminar con la etiqueta <html> -->
+<html>
+
+    <!-- TODO: Cantar una Sevillana por bulerías con Hesús -->
+    <!-- CABECERA HTML -->
+    <head>
+
+        <!-- la definicion del juego de caracteres usado es vital para evitar
+             errores de codificación -->
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <!-- el titulo HTML aparece en la barra del navegador, en los favoritos,
+             en los resultados de Google,... -->
+        <title>Álbum de Fotos</title>
+        
+    </head>
+    <!-- FIN DE LA CABECERA HTML -->
+
+
+    <!-- CUERPO HTML -->
+    <body>
+
+        <!-- banner superior -->
+            <!-- la etiqueta <div> permite agrupar varias etiquetas en un solo
+                 bloque -->
+        <div id="header">
+            <div class="login_info">
+                <a href="#">id de usuario</a> |
+                <a href="#">Cerrar sesión</a>
+            </div>
+
+            <!-- deberia existir una y solo una cabecera de mayor nivel -->
+            <h1>Álbum de Fotos</h1>
+        </div>
+        <!-- fin banner superior -->
+
+        <!-- cuerpo de contenidos -->
+        <div id="main">
+            <div id="navigation">
+                <a href="#"><img src="img/arrow_left.png" alt="&lArr;"
+                                 title="foto anterior"></a>
+                <a href="#"><img src="img/arrow_right.png" alt="&rArr;"
+                                 title="foto siguiente"></a>
+                <p>Foto 1 de 10</p>
+            </div>
+
+            <!-- area de datos de la foto -->
+            <h2>Título de la foto</h2>
+            <div id="photo">
+
+                <!-- la imagen propiamente dicha -->
+                     <!-- todas las imagenes deberian tener un
+                          "texto alternativo" por motivos de accesibilidad -->
+                <img src="img/123456789.jpg"
+                      alt="Título de la foto"
+                      title="Título de la foto"
+                      width="500">
+
+                <!-- texto de descripcion de la foto -->
+                <p>Lorem ipsum dolor sit amet,
+                    consectetur adipisicing elit, sed do eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua. Ut enim
+                    ad minim veniam, quis nostrud exercitation ullamco
+                    laboris nisi ut aliquip ex ea commodo consequat. Duis
+                    aute irure dolor in reprehenderit in voluptate velit
+                    esse cillum dolore eu fugiat nulla pariatur. Excepteur
+                    sint occaecat cupidatat non proident, sunt in culpa qui
+                    officia deserunt mollit anim id est laborum.</p>
+            </div>
+
+            <div id="comments">
+
+                <!-- visualizacion de comentarios -->
+                <h3>Comentarios</h3>
+                <div class="comment">
+                    <div class="message">
+                        <p>
+                            Lorem ipsum dolor sit amet,
+                            consectetur adipisicing elit, sed do eiusmod tempor
+                            incididunt ut labore et dolore magna aliqua.
+                        </p>
+                    </div>
+                    <div class="meta">
+                        <span class="author">Usuario</span>
+                        <span class="date">Enviado el 19 de enero de 2012</span>
+                    </div>
+                </div>
+                <!-- fin del area de comentarios -->
+
+                <!-- formulario para nuevos comentarios -->
+                <h3>Añadir nuevo comentario</h3>
+                <form action="#" method="post">
+
+                    <!-- cuadro de texto para el comentario -->
+                    <textarea rows="3" cols="50">Escriba su comentario</textarea>
+
+                    <div class="form-buttons">
+                        <!-- botones de previsualizacion y envio -->
+                        <input type="submit" id="preview" value="previsualizar">
+                        <input type="submit" id="send" value="publicar">
+                    </div>
+                </form>
+                <!-- fin del formulario para nuevos comentarios -->
+
+            </div>
+        </div>
+        <!-- fin del cuerpo de contenidos -->
+
+        <!-- pie de pagina -->
+        <div id="footer">
+            <span><em>Creado por <strong>Nombre del Alumno</strong></em></span>
+        </div>
+        <!-- fin del pie de pagina -->
+
+    </body>
+    <!-- FIN DEL CUERPO HTML -->
+
+</html>
