@@ -1,0 +1,42 @@
+Ejercicio 02_05
+
+En este ejercicio se van a aplicar los conocimientos adquiridos en este tema
+para crear un álbum de fotos.
+
+Si es la primera vez que utiliza hojas de estilo CSS, realice la opción a. Si,
+por el contrario, domina la edición de CSS, realice el punto b.
+En los dos casos, deberá terminar con resultados similares a lo mostrado en
+la imagen resources/web.png del proyecto
+
+
+Para cualquiera de las dos opciones que vaya a elegir, deberá abrir primero el
+proyecto: File >> Open project  y navegar hasta /var/www/02_05.
+Una vez seleccionado, pulse sobre Open Project.
+Ahora Cree un nuevo fichero index.html y sobreescríbalo con el texto que
+encontrará en "resources/index.txt". Para ello, en el proyecto, despliegue con
+el botón derecho sobre Source Files el menú que permite crear un nuevo fichero.
+Elegir New >> HTML File. El nombre del fichero deberá ser index.
+
+Opción a
+---------
+1. Cree un nuevo archivo CSS, para ello navegue mediante el menú File >> New
+File >> Other >> Cascade Style Sheet y pulsa Next. Nombre el archivo album y
+selecione el directorio style.
+2. Copie el contenido del texto resources/album.css.txt al archivo recién creado
+styles/album.css.
+3. Añada el siguiente texto al archivo "index.html" justo antes de la etiqueta
+</head>:
+<link rel="stylesheet" href="styles/album.css"
+media="screen, print, projection, tv, handheld">
+4. Ejecute el proyecto y observe los cambios en la página. Intente comprender
+el significado del elemento .block en el archivo, mirando la página HTML y la
+hoja de estilos CSS. Recuerda que Chrome dispone del Inspector de Elementos.
+
+Opción b
+--------
+1. Cree una nueva hoja de estilos en el directorio "styles".
+2. Importe esa hoja de estilos en el archivo "index.html" que creó previamente.
+3. Añade todos los elementos extra que creas conveniente a los archivos
+index.html y styles/album.css para que la web tenga el aspecto esperado. No se
+permite el uso del atributo style, ni de elementos obsoletos como align, center
+o bgcolor en los tags de index.html.

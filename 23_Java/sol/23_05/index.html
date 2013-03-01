@@ -1,0 +1,138 @@
+<!--
+Ejercicio 02_05
+===============
+
+En este ejercicio se van a aplicar los conocimientos adquiridos en este tema
+para crear un álbum de fotos.
+
+Si es la primera vez que utiliza hojas de estilo CSS, realice la opción a. Si,
+por el contrario, domina la edición de CSS, realice el punto b.
+En los dos casos, deberá terminar con resultados similares a lo mostrado en
+la imagen resources/web.png del proyecto
+
+
+Para cualquiera de las dos opciones que vaya a elegir, deberá abrir primero el
+proyecto: File >> Open project  y navegar hasta /var/www/02_05.
+Una vez seleccionado, pulse sobre Open Project.
+Ahora Cree un nuevo fichero index.html y sobreescríbalo con el texto que
+encontrará en "resources/index.txt". Para ello, en el proyecto, despliegue con
+el botón derecho sobre Source Files el menú que permite crear un nuevo fichero.
+Elegir New >> HTML File. El nombre del fichero deberá ser index.
+
+Opción a
+========
+1. Cree un nuevo archivo CSS, para ello navegue mediante el menú File >> New
+File >> Other >> Cascade Style Sheet y pulsa Next. Nombre el archivo album y
+selecione el directorio style.
+2. Copie el contenido del texto resources/album.css.txt al archivo recién creado
+styles/album.css.
+3. Añada el siguiente texto al archivo "index.html" justo antes de la etiqueta
+</head>:
+<link rel="stylesheet" href="styles/album.css"
+media="screen, print, projection, tv, handheld">
+4. Ejecute el proyecto y observe los cambios en la página. Intente comprender
+el significado del elemento .block en el archivo, mirando la página HTML y la
+hoja de estilos CSS. Recuerda que Chrome dispone del Inspector de Elementos.
+
+Opción b
+========
+1. Cree una nueva hoja de estilos en el directorio "styles".
+2. Importe esa hoja de estilos en el archivo "index.html" que creó previamente.
+3. Añade todos los elementos extra que creas conveniente a los archivos
+index.html y styles/album.css para que la web tenga el aspecto esperado. No se
+permite el uso del atributo style, ni de elementos obsoletos como align, center
+o bgcolor en los tags de index.html.
+
+
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <title>Álbum de Fotos</title>
+        <!-- Codificación UTF8 -->
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" media="screen, print, projection, tv, handheld"
+              href="styles/album.css">
+    </head>
+    <body>
+        <!-- Cabecera de la web -->
+        <div id="header" class="block">
+            <!-- Texto de arriba a la derecha mostrando información del usuario
+                 conectado y un link para desconectar -->
+            <div id="login_info">
+                <a href="#" class="user" title="sirjaime@lannister.com">Jaime Lannister</a>
+                -
+                <a href="#" class="logout" title="desconectar">Cerrar sesión</a>
+            </div>
+            <!-- Título de la página -->
+            <h1>Álbum de Fotos</h1>
+        </div>
+
+        <!-- Contenido principal de la web -->
+        <div id="main">
+            <!-- Flechas para ir a la foto anterior o siguiente -->
+            <div id="navigation">
+                <a href="#"><img src="images/arrow_left.png" alt="Anterior"></a>
+                <a href="#"><img src="images/arrow_right.png" alt="Siguiente"></a>
+                <!-- Información del número de la actual foto -->
+                <p>Foto 1 de 10</p>
+            </div>
+
+            <!-- Título de la foto -->
+            <h2>Cesped de Altojardín</h2>
+
+            <!-- Foto y su descripción -->
+            <div id="photo">
+                <img class="large"
+                     src="uploaded/123456789.jpg"
+                     alt="Cesped"
+                     title="Cesped"
+                     width="500">
+                <p class="description">Hay en gran cantidad por esta zona</p>
+            </div>
+
+            <!-- Comentarios y formulario para introducir uno nuevo -->
+            <div id="comments">
+                <!-- Título de la subsección de comentarios -->
+                <h3>Comentarios</h3>
+
+                <!-- Un comentario -->
+                <div class="comment">
+                    <!-- Mensaje del comentario -->
+                    <div class="message"><p>Winter is coming?</p></div>
+                    <!-- Información sobre el comentario, con autor y fecha -->
+                    <div class="meta">
+                        <span class="author">Jon Snow</span>
+                        <span class="date">Enviado el 2012-01-18 a las 13:08:01</span>
+                    </div>
+                </div>
+
+                <div class="comment">
+                    <div class="message">
+                        <p>¿Cuándo has estado por esa zona?</p>
+                    </div>
+                    <div class="meta">
+                        <span class="author">Tyrion Lannister</span>
+                        <span class="date">Enviado el 2012-01-18 a las 13:28:11</span>
+                    </div>
+                </div>
+
+                <!-- Formulario para añadir comentario -->
+                <h3>Añadir comentario</h3>
+                <form action="#" method="post">                    
+                    <textarea id="text" rows="4" cols="60">Escribe tu comentario...</textarea>
+                    <div class="form-buttons">
+                        <input type="submit" id="preview" value="Previsualizar">
+                        <input type="submit" id="send" value="Enviar">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Pié de página de la web -->
+        <div id="footer" class="block">
+            <p><em>Creado por <strong>Nombre del Alumno</strong></em></p>
+        </div>
+    </body>
+</html>

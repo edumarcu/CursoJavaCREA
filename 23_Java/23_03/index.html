@@ -1,0 +1,93 @@
+<!--
+Web con Listas y Tablas
+@author EM
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ejercicio 23_03</title>
+        <meta charset="UTF-8">
+        <style>
+
+            table {
+                width: 70%;
+            }
+            #table {
+                border-bottom: 2px solid black;
+                border-right: 2px solid black;
+                border-top: 2px solid lightgray;
+                border-left: 2px solid lightgray;
+              }
+
+            #table td, #table th {
+
+              border-bottom: 1px solid lightgray;
+              border-right: 1px solid lightgray;
+              border-top: 1px solid black;
+              border-left: 1px solid black;
+            }
+
+            #table_head {
+                background-color: lightgrey;
+            }
+
+            #col_pelicula {
+                width: 30%;
+            }
+            #col_nota {
+                width: 10%;
+            }
+
+
+            #pingüino {
+                width: 10%;
+            }
+
+        </style>
+    </head>
+    <body>
+        <h1>Mi primera Web</h1>
+        <p>Bienvenidos a mi primera web</p>
+
+        <h2>Mis Páginas Favoritas</h2>
+        <ul>
+            <li>
+                Noticias
+                <ol>
+                    <li><a href="http://www.elpais.es">El País</a></li>
+                    <li><a href="http://www.elmundo.es">El Mundo</a></li>
+                </ol>
+            </li>
+            <li>
+                Buscadores
+                <ol>
+                    <li><a href="http://www.google.es">Google</a></li>
+                    <li><a href="http://www.bing.es">Bing</a></li>
+                </ol>
+            </li>
+        </ul>
+
+        <h2>Películas Favoritas</h2>
+        <table id="table">
+            <caption style="caption-side: bottom;">Nota y comentarios de mis películas favoritas</caption>
+            <thead>
+                <tr id="table_head">
+                    <th id="col_pelicula">Película</th>
+                    <th id="col_nota">Nota</th>
+                    <th>Comentario</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Matrix</td>
+                    <td>9.3</td>
+                    <td>Me gustó la frase de NEO: <em>Ya sé kung-fú</em></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <img id="pingüino" src="tux.png" title="Pingüino"/>
+
+    </body>
+</html>

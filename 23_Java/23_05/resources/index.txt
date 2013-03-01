@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <title>Álbum de Fotos</title>
+        <!-- Codificación UTF8 -->
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" media="screen, print, projection, tv, handheld"
+              href="styles/album.css">
+    </head>
+    <body>
+        <!-- Cabecera de la web -->
+        <div id="header" class="block">
+            <!-- Texto de arriba a la derecha mostrando información del usuario
+                 conectado y un link para desconectar -->
+            <div id="login_info">
+                <a href="#" class="user" title="sirjaime@lannister.com">Jaime Lannister</a>
+                -
+                <a href="#" class="logout" title="desconectar">Cerrar sesión</a>
+            </div>
+            <!-- Título de la página -->
+            <h1>Álbum de Fotos</h1>
+        </div>
+
+        <!-- Contenido principal de la web -->
+        <div id="main">
+            <!-- Flechas para ir a la foto anterior o siguiente -->
+            <div id="navigation">
+                <a href="#"><img src="images/arrow_left.png" alt="Anterior"></a>
+                <a href="#"><img src="images/arrow_right.png" alt="Siguiente"></a>
+                <!-- Información del número de la actual foto -->
+                <p>Foto 1 de 10</p>
+            </div>
+
+            <!-- Título de la foto -->
+            <h2>Cesped de Altojardín</h2>
+
+            <!-- Foto y su descripción -->
+            <div id="photo">
+                <img class="large"
+                     src="uploaded/123456789.jpg"
+                     alt="Cesped"
+                     title="Cesped"
+                     width="500">
+                <p class="description">Hay en gran cantidad por esta zona</p>
+            </div>
+
+            <!-- Comentarios y formulario para introducir uno nuevo -->
+            <div id="comments">
+                <!-- Título de la subsección de comentarios -->
+                <h3>Comentarios</h3>
+
+                <!-- Un comentario -->
+                <div class="comment">
+                    <!-- Mensaje del comentario -->
+                    <div class="message"><p>Winter is coming?</p></div>
+                    <!-- Información sobre el comentario, con autor y fecha -->
+                    <div class="meta">
+                        <span class="author">Jon Snow</span>
+                        <span class="date">Enviado el 2012-01-18 a las 13:08:01</span>
+                    </div>
+                </div>
+
+                <div class="comment">
+                    <div class="message">
+                        <p>¿Cuándo has estado por esa zona?</p>
+                    </div>
+                    <div class="meta">
+                        <span class="author">Tyrion Lannister</span>
+                        <span class="date">Enviado el 2012-01-18 a las 13:28:11</span>
+                    </div>
+                </div>
+
+                <!-- Formulario para añadir comentario -->
+                <h3>Añadir comentario</h3>
+                <form action="#" method="post">                    
+                    <textarea id="text" rows="4" cols="60">Escribe tu comentario...</textarea>
+                    <div class="form-buttons">
+                        <input type="submit" id="preview" value="Previsualizar">
+                        <input type="submit" id="send" value="Enviar">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Pié de página de la web -->
+        <div id="footer" class="block">
+            <p><em>Creado por <strong>Nombre del Alumno</strong></em></p>
+        </div>
+    </body>
+</html>

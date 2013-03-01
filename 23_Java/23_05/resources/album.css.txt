@@ -1,0 +1,208 @@
+/*
+ *   Document   : album.css
+ *   Created on : 19-enero-2012, 17:03:02
+ *   Authors    : Warp Networks
+ *   Description: CSS file for album application
+ */
+
+body {
+    margin: 0px;
+    color: black;
+    background-color: #E1E2FA;
+    font-family: sans-serif, Arial, Helvetica;
+}
+
+/* Bloque con fondo que ocupe todo el ancho de la página */
+
+.block {    
+    width: 100%;
+    text-align: center;
+    background-color: #223342;
+    color: white;
+    padding: 0;  
+    margin: 0;
+}
+
+
+/* Información del usuario logueado en la página */
+
+#login_info {
+    float: right;
+    font-size: small;
+    padding: 0.2em;
+    font-weight: bold;    
+}
+
+#login_info a:link , #login_info a:visited {
+    color: #f9f9f9;
+    text-decoration: none;
+}
+
+#login_info a:hover {
+    color: #112211;
+    text-decoration: none;
+    background-color: #F2F2E0;
+}
+
+
+/* Estilos generales */
+
+#header {    
+    height: 125px;    
+}
+
+#main {
+    width: 980px;   
+    background-color: white;
+    border-left: 1px solid black;
+    border-right: 1px solid black;    
+    margin: auto;
+    padding-bottom: 20px;
+}
+
+#footer {
+    font-size: x-small;    
+    margin: auto;
+    height: 70px;    
+}
+
+#footer p {
+    padding-top: 35px;
+    margin: 0;
+}
+
+h1 {
+    font-size: xx-large;
+    text-align: left;    
+    padding-left: 30px;
+    padding-top: 25px;
+    margin: 0;
+}
+
+h2 {
+    font-size: large;
+    font-weight: bold;
+    padding-left: 30px;
+    padding-top: 25px;
+    margin: 0;
+}
+
+a img {
+    border: none;
+}
+
+h3, h4, h5, h6 {
+    color: #393B6B;
+}
+
+
+/* Mostrar navegación y foto con su descripción */
+
+#navigation {
+    float:right;
+    margin: 0.5em;
+}
+#navigation p {
+    text-align: center;
+    font-size: smaller;
+    margin: 0;
+}
+
+#photo {
+    background-color: #f5f5f5;
+    text-align: center;
+    float: none;
+    clear: both;
+    padding: 0em;
+    overflow: hidden;
+}
+
+#photo img.large {
+    margin: 0;
+    margin-bottom: 15px;
+    padding: 0;
+}
+
+#photo p.description {
+    text-align: justify;
+    font-family: Verdana;
+    font-size: medium;
+    margin: 0px;
+    padding: 30px;
+    padding-top: 0px;
+}
+
+
+/* Comentarios */ 
+
+div#comments {
+    width: 70%;
+    margin: auto;
+    text-align: left;
+    font-size: small;
+    padding: 5px;
+}
+
+.comment {
+    margin: 20px;
+    margin-bottom: 35px;
+    border-bottom: 1px solid #ccddff;
+}
+.comment .message {
+    padding-bottom: 10px;
+    padding-left: 10px;
+    font-size: 14px;
+}
+.comment .message p {
+    padding: 0;
+    margin: 0;
+}
+.comment .meta span.author {
+    color: #090bab;
+    font-weight: bold;
+}
+.comment .meta span.date {
+    color: gray;
+    margin-top: 0em;
+    font-size: x-small;
+}
+
+#comments form {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+#comments form #text {    
+    border: 1px solid #999bfb;
+    width: 100%;
+    height: 4em;
+}
+
+#comments form input[type=submit] {
+    background: #223342;
+    color: #f5f5f5;
+    border: 1px solid #999bfb;
+}
+#comments form input[type=submit]:hover {    
+    background: #335462;
+    color: #ffffff;
+}
+
+#comments form .form-buttons {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.comment a:link, .comment a:visited {
+    color: #090bab;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.comment a:hover {
+    color: #f5f5f5;
+    background-color: #090bab;
+    text-decoration: none;
+    font-weight: bold;
+}
+

@@ -1,0 +1,16 @@
+Ejercicio 02_03
+
+En este primer ejercicio creará una sencilla web con la misma estructura y
+contenido que la mostrada en la captura en el fichero ejemplo.png.
+
+Tanto la imagen del pingüino como la tabla debe hacerse más estrecho si el
+navegador es redimensionado en su anchura. La tabla ocupa un 70% de la anchura
+de la página y el pingüino un 10%. Dentro de la tabla, la columna de películas
+ocupa un 30% del total de la tabla y la nota un 10%. El dibujo del pingüino se
+encuentra en /var/www/02_01/tux.png.
+El ejemplo de la relación de estos tamaños puede verla en el fichero
+ejemplo_tamannos.png
+
+En esta página se han usado los siguientes elementos: titulares (h1, h2),
+párrafos (p), listas (ul y ol), tablas (table) e imágenes (img). Además, se
+han añadido diferentes atributos como color, alineación y tamaño.

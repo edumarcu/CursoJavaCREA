@@ -1,0 +1,126 @@
+<!--
+     la declaracion "DOCTYPE" permite indicar el tipo de archivo
+     (HTML, XML, ...) y la version con los que estamos trabajando
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<!-- toda página web debe comenzar y terminar con la etiqueta <html> -->
+<html>
+
+
+    <!-- CABECERA HTML -->
+    <head>
+        <!-- la definicion del juego de caracteres usado es vital para evitar
+             errores de codificación -->
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <!-- el titulo HTML aparece en la barra del navegador, en los favoritos,
+             en los resultados de Google,... -->
+        <title>Álbum de Fotos</title>
+
+        <!-- se aplican un CSS mediante una hoja de estilos aparte, por limpieza
+             y por velocidad de carga -->
+
+    </head>
+    <!-- FIN DE LA CABECERA HTML -->
+
+
+    <!-- CUERPO HTML -->
+    <body>
+
+        <!-- banner superior -->
+            <!-- la etiqueta <div> permite agrupar varias etiquetas en un solo
+                 bloque -->
+        <div id="header" class="bar">
+            <div class="session_info">
+                <a href="#" class="logout">id de usuario</a> |
+                <a href="#" class="logout">Cerrar sesión</a>
+            </div>
+
+            <!-- deberia existir una y solo una cabecera de mayor nivel -->
+            <h1>Álbum de Fotos</h1>
+        </div>
+        <!-- fin banner superior -->
+
+        <!-- cuerpo de contenidos -->
+        <div id="main">
+            <div id="navigation">
+                <a href="#"><img src="img/arrow_blue_left.png" alt="&lArr;"
+                                 title="foto anterior"></a>
+                <a href="#"><img src="img/arrow_blue_right.png" alt="&rArr;"
+                                 title="foto siguiente"></a>
+            </div>
+
+            <!-- area de datos de la foto -->
+            <h2>Título de la foto</h2>
+            <p id="metadata">Foto 1 de 10</p>
+
+            <div class="frame">
+
+                <!-- la imagen propiamente dicha -->
+                     <!-- todas las imagenes deberian tener un
+                          "texto alternativo" por motivos de accesibilidad -->
+                <img class="large"
+                     src="img/1177028162-s5.jpg"
+                     alt="Título de la foto"
+                     title="Título de la foto"
+                     width="400" height="275"
+                     />
+
+                <!-- texto de descripcion de la foto -->
+                <p class="photo_description">Lorem ipsum dolor sit amet,
+                    consectetur adipisicing elit, sed do eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua. Ut enim
+                    ad minim veniam, quis nostrud exercitation ullamco
+                    laboris nisi ut aliquip ex ea commodo consequat. Duis
+                    aute irure dolor in reprehenderit in voluptate velit
+                    esse cillum dolore eu fugiat nulla pariatur. Excepteur
+                    sint occaecat cupidatat non proident, sunt in culpa qui
+                    officia deserunt mollit anim id est laborum.</p>
+            </div>
+
+            <div id="comments">
+
+                <!-- visualizacion de comentarios -->
+                <h3>Comentarios</h3>
+                <div class="comment">
+                    <p class="user">
+                        <span class="user_name"><a href="#">Usuario</a></span> dice:
+                    </p>
+                    <p class="text">Lorem ipsum dolor sit amet,
+                    consectetur adipisicing elit, sed do eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua.</p>
+                    <p class="date">Enviado el 30 de febrero de 2009</p>
+                </div>
+                <!-- fin del area de comentarios -->
+
+                <!-- formulario para nuevos comentarios -->
+                <h3>Añadir nuevo comentario</h3>
+                <form action="#" method="POST">
+
+                    <!-- cuadro de texto para el comentario -->
+                    <textarea id="text" rows="3" cols="50">Escriba su comentario</textarea><br>
+
+                    <div class="buttons">
+
+                        <!-- botones de previsualizacion y envio -->
+                        <input type="submit" id="preview" value="previsualizar">
+                        <input type="submit" id="send" value="publicar">
+                    </div>
+                </form>
+                <!-- fin del formulario para nuevos comentarios -->
+
+            </div>
+        </div>
+        <!-- fin del cuerpo de contenidos -->
+
+        <!-- pie de pagina -->
+        <div id="footer" class="bar">
+            <p><em>Creado por <strong>Nombre del Alumno</strong></em>.</p>
+        </div>
+        <!-- fin del pie de pagina -->
+
+    </body>
+    <!-- FIN DEL CUERPO HTML -->
+
+</html>

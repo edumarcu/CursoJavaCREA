@@ -1,0 +1,132 @@
+root {
+    display: block;
+}
+
+/****************
+General
+*****************/
+
+.cabecera
+{
+  text-align:center;
+}
+.aizquierda
+{
+  float:left;
+}
+
+.aderecha
+{
+  float:right;
+}
+
+font.pequeNotas
+{
+  font-size:0.75em;
+}
+
+font.cite
+{
+ font-style:italic;
+}
+
+/****************
+id título
+*****************/
+h2#titulo
+{
+  color:red;
+  font-size:3em;
+}
+
+/****************
+Sección: mis páginas
+*****************/
+div#seccioninfo
+{
+  width:40%;
+}
+
+div#seccioninfo h2
+{
+  font-style:oblique;
+}
+
+a.aumentar:hover {
+  font-size:1.5em;
+}
+
+a.disminuir:hover {
+    font-size:0.5em;
+}
+
+
+/****************
+Sección: películas
+*****************/
+div#seccionpeliculas
+{
+    width:60%;
+}
+
+div#seccionpeliculas h2
+{
+  text-decoration:underline;
+}
+/****************
+Sección: pinguino
+*****************/
+div#imagenpinguino
+{
+  width:20%;
+}
+/****************
+tabla
+*****************/
+table
+{
+  border:solid green 2px;
+}
+table td
+{
+  border:solid green 1px;
+}
+
+table th
+{
+  border:solid green 1px;
+}
+
+
+table tbody tr:hover /*únicamente las filas con class=info*/
+{
+  background-color:grey;
+}
+
+
+/****************
+imagen
+*****************/
+
+div#imagenes /*únicamente las imágenes con id=pinguino*/
+{
+  margin: 10px 0px 0px 0px;
+  width:100%;
+  float:left;
+}
+
+div#imagenes img#uno
+{
+  width:15%;
+  border:solid 1px red;
+  margin: 0px 40px 0px 0px;
+  padding: 0px 0px 0px 30px;
+}
+
+div#imagenes img#dos
+{
+  width:15%;
+  border:solid 1px green;
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
+}

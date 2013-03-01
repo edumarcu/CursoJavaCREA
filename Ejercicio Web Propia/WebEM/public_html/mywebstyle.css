@@ -1,0 +1,81 @@
+/*
+    Document   : mywebstyle
+    Created on : 01-mar-2013, 12:32:44
+    Author     : EM
+    Description:
+        Personal Web Page main features
+*/
+html {
+    width: 75%;
+    background-color: lightgrey;
+    font-family: Lato, sans-serif;
+}
+
+body {
+     width: 750px;
+     margin: 0px auto;
+     background-color: white;;
+}
+
+#personal_card {
+    float: left;
+    margin-left:  15px;
+    margin-right: 15px;
+    margin-top: 15px;
+    width: 720px;
+    overflow: hidden;
+}
+
+#description {
+    float: left;
+    overflow: hidden;
+}
+
+#name {
+    float: top;
+}
+
+#introduction {
+    float: bottom;
+}
+
+#myself {
+    float: bottom;
+    padding-left: 20px;
+}
+
+#photo {
+    float: right;
+}
+
+
+#sections {
+    float: bottom;
+    overflow: hidden;
+    margin-top: 510px;
+    margin-bottom:15px;
+    width: 750px;
+    margin-left: 15px;
+}
+
+#section_tech {
+    float: left;
+    padding-left: 25px;
+    width: 200px;
+}
+#sections h3 {
+    text-align: center;
+}
+
+#section_interests {
+    float: left;
+    padding-left: 25px;
+    width: 200px;
+}
+
+#section_contact {
+    float: left;
+    padding-left: 25px;
+    width: 200px;
+}
+

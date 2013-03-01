@@ -1,0 +1,82 @@
+<!--
+
+Ejercicio 02_04
+===============
+
+
+En este ejercicio se pondrán en práctica los fundamentos CSS aprendidos. A
+partir del esqueleto de una web, se editará la hoja de estilo CSS para que se
+parezca a la imagen que se enseñará durante el ejercicio.
+
+Hay que tener en cuenta que:
+ * Al pasar el ratón por los diferentes enlaces en las noticias y buscadores, la
+letra cambia de tamaño. Los enlaces a El País y Bing se harán más pequeños y los
+enlaces a Público y Google, más grandes.
+ * Al pasar el ratón por la tabla con las películas favoritas se cambia el color de
+fondo de la fila excepto en la cabecera.
+ * La estructura de la página web final será igual a la mostrada en ejemplo.png
+
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <link 
+    </head>
+    <body>
+        <h2  class="cabecera" id="titulo">Mi primera web</h2>
+        <p class="cabecera" id="textobienvenida" >Bienvenidos a mi primera página web</p>
+
+        <div class="aderecha" id="seccioninfo">
+            <h2>Mis Páginas favoritas</h2>
+            <ul>
+                <li><p>Noticias<p></li>
+                <li>
+                    <ol>
+                        <li><a class="disminuir" href="http://www.elpais.com">El País</a></li>
+                        <li><a class="aumentar" href="http://www.publico.es">Público</a></li>
+                    </ol>
+                </li>
+                <li><p>Buscadores<p></li>
+                <li>
+                    <ol>
+                        <li><a class="aumentar" href="http://www.google.com">Google</a></li>
+                        <li><a class="disminuir" href="http://www.bing.es">Bing</a></li>
+                    </ol>
+                </li>
+            </ul>
+        </div>
+
+        <div class="aizquierda" id="seccionpeliculas">
+            <h2>Películas favoritas</h2>
+            <table id="tablapeliculas">
+                <caption><font class="pequeNotas"> Nota y comentarios de mis películas favoritas </font></caption>
+                    <tr class="header">
+                        <th>Película</th>
+                        <th class="nota">Nota</th>
+                        <th>Comentario</th>
+                    </tr>
+                    <tr class="info">
+                        <td id="matrixrow">Matrix</td>
+                        <td class="nota">9.8</td>
+                        <td>Me gustó la frase de Neo: <font class="cite">Ya sé kung-fu</font></td>
+                    </tr>
+                    <tr class="info">
+                        <td>El séptimo sello</td>
+                        <td class="nota">9.3</td>
+                        <td>Una interesante partida entre un hombre y la muerte que va a por él</td>
+                    </tr>
+                    <tr  class="info">
+                        <td>El héroe del río</td>
+                        <td class="nota">9.0</td>
+                        <td>Comedia muda de 1928</td>
+                    </tr>
+            </table>
+        </div>
+        <div  id="imagenes">
+            <img id="uno" src="tux1.png" />
+            <img id="dos" src="tux2.png" />
+        </div>
+</body>
+</html>
