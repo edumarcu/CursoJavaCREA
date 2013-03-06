@@ -1,0 +1,68 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>JQuery examples</title>
+		
+		<script type="text/javascript" src="jquery-1.9.1.js"> </script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				alert('Documento Cargado a tope');
+				// cambio de propiedades css
+				$('h1').css('color', 'red');
+				//eventos
+				$('h1').on('click', function() {
+					$('p').slideToggle();
+				});
+				
+				//timeouts
+				$('h1').css('opacity', 0);
+				$('p').css('opacity', 0);
+				
+				setTimeout(
+					function (){
+						$('h1').animate({opacity: 1}, 1000);
+						$('p').animate({opacity: 1}, 1000);
+					},
+				1000);
+				
+				//opacity abreviado
+				$('h1').css('display', 'none');
+				$('p').css('display', 'none');
+				
+				setTimeout(
+					function (){
+						$('h1').fadeIn();
+						$('p').fadeIn();
+					},
+				1000);
+				
+				//leer y cambiar contenido etiqueta html
+				alert($('h1').html());
+				
+			});
+			// sintaxis equivalente abreviada
+			$(function(){
+				alert('Ueeeeee');
+			});
+			//reordenacion elementos
+			$('.reorder').on('click', function() {
+				var reorderable = $(this).nextAll('.reorderable').first();
+				var last = reorderable.children().last();
+				reorderable.prepend(last);
+			});
+		</script>
+	</head>
+	<body>
+		<h1>Hola Mundo</h1>
+		<p>Yes. You gave me a dollar and some candy. And from now on you're
+		all named Bender Jr. Yeah, and if you were the pope they'd be all, 
+		"Straighten your pope hat." And "Put on your good vestments." Meh.</p>
+		
+		<h2 class="reorder">Lista</h2>
+		<ul class="reorderable">
+			<li>Primero</li>
+			<li>Segundo</li>
+			<li>Tercero</li>
+		</ul>
+	</body>
+</html>
