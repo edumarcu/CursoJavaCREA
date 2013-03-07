@@ -14,9 +14,11 @@
     </head>
     <body>
         <h2>Attributes in request 1</h2>
+
         <%
             request.setAttribute("foo", "FOO");
         %>
+        <p><%= "Request URI: " + request.getRequestURI() %></p>
         <ul>
             <%
                 Enumeration<String> names = request.getAttributeNames();

@@ -7,6 +7,7 @@
 <%@page import="java.util.Enumeration"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <h2>Attributes in request 2</h2>
+ <p><%= "Request URI: " + request.getRequestURI() %></p>
  <ul>
     <%
         Enumeration<String> names2 = request.getAttributeNames();
