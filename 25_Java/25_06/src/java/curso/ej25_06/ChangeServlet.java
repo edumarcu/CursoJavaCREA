@@ -1,4 +1,4 @@
-package curso.ej25_03;
+package curso.ej25_06;
 
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
@@ -10,12 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(
-        name = "IndexServlet",
+        name = "ChangeServlet",
         urlPatterns = {"/change"})
-public class IndexServlet extends HttpServlet{
+public class ChangeServlet extends HttpServlet{
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         String message = (String) req.getParameter("changeMessage");
         if (message == null || message.length() < 4) {
@@ -33,7 +33,7 @@ public class IndexServlet extends HttpServlet{
             ServletContext application = getServletContext();
             application.setAttribute("message", message);
 
-            resp.sendRedirect(req.getContextPath() + "/index.jsp");
+            resp.sendRedirect(req.getContextPath() + "/index");
         }
     }
 
