@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+
+  <display-name>26_Demo_Session</display-name>
+
+  <context-param>
+        <param-name>appName</param-name>
+        <param-value>Demo 26</param-value>
+    </context-param>
+
+    <session-config>
+        <session-timeout>30</session-timeout>
+        <tracking-mode>COOKIE</tracking-mode>
+        <!-- <tracking-mode>URL</tracking-mode> -->
+    </session-config>
+
+  <error-page>
+        <location>/error.jsp</location>
+    </error-page>
+  <error-page>
+        <error-code>404</error-code>
+        <location>/error404.jsp</location>
+    </error-page>
+
+  <welcome-file-list>
+        <welcome-file>index_session.jsp</welcome-file>
+        <welcome-file>hello</welcome-file>
+    </welcome-file-list>
+
+   <servlet>
+        <servlet-name>HelloWorld1</servlet-name>
+        <servlet-class>curso.demo26.HelloWorldServlet</servlet-class>
+        <init-param>
+          <param-name>language</param-name>
+          <param-value>es</param-value>
+        </init-param>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>HelloWorld1</servlet-name>
+        <url-pattern>/hello1</url-pattern>
+    </servlet-mapping>
+
+   <servlet>
+        <servlet-name>HelloWorld2</servlet-name>
+        <servlet-class>curso.demo26.HelloWorldServlet</servlet-class>
+        <init-param>
+          <param-name>language</param-name>
+          <param-value>en</param-value>
+        </init-param>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>HelloWorld2</servlet-name>
+        <url-pattern>/hello2</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ReadConfigServlet</servlet-name>
+        <servlet-class>curso.demo26.ReadConfigServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ReadConfigServlet</servlet-name>
+        <url-pattern>/readConfig</url-pattern>
+    </servlet-mapping>
+  </web-app>
