@@ -42,7 +42,7 @@ public class AddBookServlet extends HttpServlet{
         req.setAttribute("book", book);
 //        req.setAttribute("message", message);
         resp.sendRedirect(req.getContextPath() + "/index");
-        //TODO: si hacemos forward con error, habria que hacer doPost en index, porque lo manda a aqui
+        //TODO: si hacemos forward con error, habria que hacer doPost en index, porque lo manda de aqui
     }
 
 }
