@@ -5,7 +5,7 @@
     String login = (String) session.getAttribute("login"); // Retrieve login from session
     User user = UserStorage.getUserByLogin(login); // Retrieve User for this login
 
-    if (request.getSession(false) == null) {
+    if (session.isNew()) {
         session.setAttribute("message", "Session expired!");
     } else {
         session.setAttribute("message", "Session active!");
