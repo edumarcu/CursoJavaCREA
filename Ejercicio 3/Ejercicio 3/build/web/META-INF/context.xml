@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context antiJARLocking="true" path="/Ejercicio3">
+  <Resource name="jdbc/tasks"
+            auth="Container"
+            type="javax.sql.DataSource"
+            driverClassName="com.mysql.jdbc.Driver"
+            url="jdbc:mysql://localhost/tasks"
+            username="root"
+            password="password"
+            maxIdle="30"
+            maxWait="1000"
+            maxActive="100"/>
+</Context>
