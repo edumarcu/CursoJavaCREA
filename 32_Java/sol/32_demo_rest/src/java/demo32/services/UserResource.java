@@ -3,6 +3,7 @@ package demo32.services;
 import demo32.User;
 import java.util.ArrayList;
 import java.util.List;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
@@ -16,13 +17,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Produces;
 
-/**
- * REST Web Service
- *
- * @author EM
- */
 @Path("/user")
-// estare en /webresources
 public class UserResource {
 
     private static List<User> users;
@@ -35,24 +30,20 @@ public class UserResource {
     }
 
     @Context
-    private UriInfo context;
+    HttpServletRequest request;
 
     @GET
     @Path("/{id}")
-    @Produces("application/json") // toJSON usa JAXB
-    // el parametro el lo ha puesto como Integer
-    public User getUser(@PathParam("id") int id) {
+    @Produces("application/json")
+    public User getUser(@PathParam("id") Integer id) {
         for (User u : users) {
-            if (u.getId() == id) {
-                return u;
-            }
+            if (u.getId() == id ) { return u; }
         }
         return null;
     }
 
     @GET
     @Produces("application/json")
-    // el parametro el lo ha puesto como Integer
     public List<User> getUsers() {
         return users;
     }
@@ -60,42 +51,38 @@ public class UserResource {
     @DELETE
     @Path("/{id}")
     @Produces("application/json")
-    public void deleteUser(@PathParam("id") int id) {
-        User userToDelete = null;
-
-        // no se puede eliminar un elemento mientras se recoren las coelcciones
+    public boolean deleteUser(@PathParam("id") Integer id) {
+        User user = null;
         for (User u : users) {
-            if (u.getId() == id) {
-                userToDelete = u;
-                break;
-            }
+            if (u.getId() == id ) { user = u; break; }
         }
-        if (userToDelete != null) {
-            users.remove(userToDelete);
+
+        if (user != null) {
+            users.remove(user);
+            return true;
+        } else {
+            return false;
         }
     }
-/*
+
     @POST
-    @Path("/{id/{name}")
     @Produces("application/json")
-    public void createUser(@PathParam("id") int id, @PathParam("name") String name) {
-        users.add(new User(id, name));
-    }
-*/
-    // parametros de form
-    @PUT
-    @Produces("application/json")
-    public void updateUser(@FormParam("id") int id, @FormParam("name") String name) {
-        User userToUpdate = null;
+    public boolean createUser(@FormParam("id") int id, @FormParam("name") String name) {
+        User user = new User();
+        user.setId(id);
+        user.setName(name);
 
-        for (User u : users) {
-            if (u.getId() == id) {
-                userToUpdate = u;
-                break;
-            }
-        }
-        if (userToUpdate != null) {
-            userToUpdate.setName(name);
-        }
+        users.add(user);
+        return true;
+    }
+
+    @PUT
+    @Path("/{id}")
+    @Produces("application/json")
+    public boolean editUser(@PathParam("id") Integer id) {
+        User user = getUser(id);
+        user.setName(request.getParameter("name"));
+
+        return true;
     }
 }

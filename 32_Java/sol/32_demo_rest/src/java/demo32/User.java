@@ -31,6 +31,7 @@ public class User {
     }
 
     // to JSON
+
     public String toJSON() {
         return String.format("{\"id\": %d, \"name\": \"%s\"}",
                     this.id,

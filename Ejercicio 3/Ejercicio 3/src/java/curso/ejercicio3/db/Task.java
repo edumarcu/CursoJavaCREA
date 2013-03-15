@@ -1,5 +1,6 @@
 package curso.ejercicio3.db;
 
+import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,8 +14,8 @@ import javax.persistence.TypedQuery;
 
 @Entity
 @Table(name="tasks")
-public class Task {
-    
+public class Task implements Serializable {
+
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
@@ -58,7 +59,7 @@ public class Task {
     public void setDone(boolean done) {
         this.done = done;
     }
-    
+
     // Utils
     @Override
     public String toString() {
@@ -86,11 +87,11 @@ public class Task {
 
     // Active Record - Data Modifying Methods
     public void create(EntityManager em) throws PersistenceException {
-                
+
         EntityTransaction et = em.getTransaction();
         if (em.find(Task.class, this.getId()) != null) {
             throw new PersistenceException(this.toString() + " already exists!");
-            
+
         } else {
             try {
                 et.begin();
