@@ -1,6 +1,7 @@
 package curso.ejercicio3;
 
 import curso.ejercicio3.db.PersistenceUtils;
+import javax.persistence.EntityManager;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;

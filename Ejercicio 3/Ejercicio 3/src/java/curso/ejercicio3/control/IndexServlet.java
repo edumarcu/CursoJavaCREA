@@ -21,6 +21,7 @@ public class IndexServlet extends HttpServlet {
         EntityManager em = PersistenceUtils.createEntityManager();
         List<Task> todo = Task.findAllByDone(em, false);
         List<Task> done = Task.findAllByDone(em, true);
+        em.close();
 
         // redirect to view
         req.setAttribute("todo", todo);

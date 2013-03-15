@@ -4,6 +4,6 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>curso.ejercicio3.db.Task</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
-    <non-jta-data-source>jdbc/tasks</non-jta-data-source>
+    <non-jta-data-source>java:comp/env/jdbc/tasks</non-jta-data-source>
   </persistence-unit>
 </persistence>

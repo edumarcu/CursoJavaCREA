@@ -1,5 +1,6 @@
 package curso.ejercicio3.control;
 
+import curso.ejercicio3.db.PersistenceUtils;
 import curso.ejercicio3.db.Task;
 import java.io.IOException;
 import javax.persistence.EntityManager;
@@ -24,12 +25,13 @@ public class AddTaskServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        
+
         // For application Attributes
         ServletContext application = getServletContext();
-        
+
         // Retrieve parameter "text"
         String text = req.getParameter("text");
+        // TODO: validate acentos (Jesús)
 
         // Create new task
         Task newTask = new Task();
@@ -37,12 +39,14 @@ public class AddTaskServlet extends HttpServlet {
         newTask.setDone(false);
 
         // Save task on database
-        EntityManager em = (EntityManager) application.getAttribute("em");
+//        EntityManager em = (EntityManager) application.getAttribute("em");
+        EntityManager em = PersistenceUtils.createEntityManager();
         try {
             newTask.create(em);
         } catch (Exception e) {
-            
-        }      
+
+        }
+        em.close();
 
         // Redirect to index
         String base = (String) application.getAttribute("base");
