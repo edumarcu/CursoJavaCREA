@@ -16,6 +16,10 @@ public class IndexAction extends Action {
 
     @Override
     public void doAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // indicamos lo que va a devolver el response, en la cabecera HTTP (el la HTML lo hacemos en el JSP)
+        response.setContentType("text/html");
+        response.setCharacterEncoding("UTF-8");
+
         HttpSession session = request.getSession();
         if (session.getAttribute("name") == null) {
             session.setAttribute("name", "Desconocido");
