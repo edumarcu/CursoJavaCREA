@@ -68,13 +68,7 @@ public class Task implements Serializable {
 
     // Active Record - Find Methods
     public static Task findById(EntityManager em, int id) {
-        // TODO:
-        return null;
-    }
-
-    public static List<Task> findAll(EntityManager em, int id) {
-        // TODO:
-        return null;
+        return em.find(Task.class, id);
     }
 
     public static List<Task> findAllByDone(EntityManager em, boolean done) {
@@ -110,11 +104,47 @@ public class Task implements Serializable {
     }
 
     public Task update(EntityManager em) throws PersistenceException {
-        // TODO:
-        return null;
+        EntityTransaction et = em.getTransaction();
+        if (em.find(Task.class, this.getId()) == null) {
+            throw new PersistenceException(this.toString() + " no exists!");
+
+        } else {
+            try {
+                et.begin();
+                em.merge(this);
+                em.flush();
+                et.commit();
+
+            } catch (Exception e) {
+                if (et.isActive()) {
+                    et.rollback();
+                }
+
+                throw new PersistenceException("Error updating " + this.toString());
+            }
+        }
+        return this;
     }
 
     public void delete(EntityManager em) throws PersistenceException {
-        // TODO:
+        EntityTransaction et = em.getTransaction();
+        if (em.find(Task.class, this.getId()) == null) {
+            throw new PersistenceException(this.toString() + " no exists!");
+
+        } else {
+            try {
+                et.begin();
+                em.remove(this);
+                em.flush();
+                et.commit();
+
+            } catch (Exception e) {
+                if (et.isActive()) {
+                    et.rollback();
+                }
+
+                throw new PersistenceException("Error deleting " + this.toString());
+            }
+        }
     }
 }

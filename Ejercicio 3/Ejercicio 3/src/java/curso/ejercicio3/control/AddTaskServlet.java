@@ -39,12 +39,11 @@ public class AddTaskServlet extends HttpServlet {
         newTask.setDone(false);
 
         // Save task on database
-//        EntityManager em = (EntityManager) application.getAttribute("em");
         EntityManager em = PersistenceUtils.createEntityManager();
         try {
             newTask.create(em);
         } catch (Exception e) {
-
+            //TODO: Exception handling
         }
         em.close();
 

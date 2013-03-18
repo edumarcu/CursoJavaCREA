@@ -15,10 +15,6 @@ public class AppListener implements ServletContextListener {
         String base = application.getContextPath();
         application.setAttribute("base", base);
 
-        // Inicialize Entity Manager
-//        EntityManager em = PersistenceUtils.createEntityManager();
-//        application.setAttribute("em", em);
-
     }
 
     @Override

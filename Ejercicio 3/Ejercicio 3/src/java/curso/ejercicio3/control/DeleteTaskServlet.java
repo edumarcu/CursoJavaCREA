@@ -5,6 +5,7 @@ import curso.ejercicio3.db.PersistenceUtils;
 import curso.ejercicio3.db.Task;
 import java.io.IOException;
 import javax.persistence.EntityManager;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,12 +17,27 @@ public class DeleteTaskServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // TODO: Retrieve parameter "id"
+        
+        // For application Attributes
+        ServletContext application = getServletContext();
 
-        // TODO: Retrieve task from database
+        // Retrieve parameter "id"
+        int id = Integer.parseInt(req.getParameter("id"));
 
-        // TODO: Delete task from database
+        // Retrieve task from database
+        EntityManager em = PersistenceUtils.createEntityManager();
+        Task deleteTask = Task.findById(em, id);
 
-        // TODO: Redirect to index
+        // Delete task from database
+        try {
+            deleteTask.delete(em);
+        } catch (Exception e) {
+            //TODO: Exception handling
+        }
+        em.close();
+
+        // Redirect to index
+        String base = (String) application.getAttribute("base");
+        resp.sendRedirect(base + "/index");
     }
 }

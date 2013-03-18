@@ -6,6 +6,7 @@ import curso.ejercicio3.db.Task;
 import java.io.IOException;
 import javax.persistence.EntityManager;
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,21 +18,52 @@ public class EditTaskServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // TODO: Retrieve parameter "id"
+        
+        // Retrieve parameter "id"
+        int id = Integer.parseInt(req.getParameter("id"));
 
-        // TODO: Retrieve task from database
-
-        // TODO: Forward to edit_form
+        // Retrieve task from database
+        EntityManager em = PersistenceUtils.createEntityManager();
+        Task editTask = Task.findById(em, id);
+        em.close();
+        
+        // Task as attribute
+        req.setAttribute("task", editTask);
+        
+        // Forward to edit_form
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/views/edit_form.jsp");
+        dispatcher.forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // TODO: Retrieve parameter "id"
+        
+         // For application Attributes
+        ServletContext application = getServletContext();
+        
+        // Retrieve parameter "id"
+        int id = Integer.parseInt(req.getParameter("id"));
 
-        // TODO: Retrieve task from database
+        // Retrieve task from database
+        EntityManager em = PersistenceUtils.createEntityManager();
+        Task editTask = Task.findById(em, id);
+        
+        // Retrieve parameter "text"
+        String text = req.getParameter("text");
+        
+        // Update Text
+        editTask.setText(text);
 
-        // TODO: Update task on database
-
-        // TODO: Redirect to index
+        // Update task on database
+        try {
+            editTask.update(em);
+        } catch (Exception e) {
+            //TODO: Exception handling
+        }
+        em.close();
+        
+        // Redirect to index
+        String base = (String) application.getAttribute("base");
+        resp.sendRedirect(base + "/index");
     }
 }

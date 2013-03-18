@@ -5,6 +5,7 @@ import curso.ejercicio3.db.PersistenceUtils;
 import curso.ejercicio3.db.Task;
 import java.io.IOException;
 import javax.persistence.EntityManager;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,12 +17,29 @@ public class UndoneTaskServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // TODO: Retrieve parameter "id"
+        // For application Attributes
+        ServletContext application = getServletContext();
 
-        // TODO: Retrieve Task from database
+        // Retrieve parameter "id"
+        int id = Integer.parseInt(req.getParameter("id"));
 
-        // TODO: Update Task and update on database
+        // Retrieve task from database
+        EntityManager em = PersistenceUtils.createEntityManager();
+        Task updateTask = Task.findById(em, id);
+        
+        // Update Done
+        updateTask.setDone(false);
 
-        // TODO: Redirect to index
+        // Update task from database
+        try {
+            updateTask.update(em);
+        } catch (Exception e) {
+            //TODO: Exception handling
+        }
+        em.close();
+
+        // Redirect to index
+        String base = (String) application.getAttribute("base");
+        resp.sendRedirect(base + "/index");
     }
 }
