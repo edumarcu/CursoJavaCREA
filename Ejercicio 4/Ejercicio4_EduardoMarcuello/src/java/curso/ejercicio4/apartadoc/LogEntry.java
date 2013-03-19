@@ -32,7 +32,7 @@ public class LogEntry implements Serializable {
     private String path;
 
     @Temporal(javax.persistence.TemporalType.DATE)
-    @Column(nullable=false)
+    @Column(name = "created_at", nullable=false)
     private Date createdAt;
 
     //

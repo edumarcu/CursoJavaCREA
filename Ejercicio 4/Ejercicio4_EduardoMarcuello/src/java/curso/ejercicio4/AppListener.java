@@ -1,5 +1,7 @@
 package curso.ejercicio4;
 
+import curso.ejercicio4.apartadoc.LogEntry;
+import java.util.ArrayList;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -13,6 +15,9 @@ public class AppListener implements ServletContextListener {
         ServletContext application = sce.getServletContext();
         String base = application.getContextPath();
         application.setAttribute("base", base);
+        
+        // Create Log
+         application.setAttribute("log", new ArrayList<LogEntry>());
     }
 
     @Override
