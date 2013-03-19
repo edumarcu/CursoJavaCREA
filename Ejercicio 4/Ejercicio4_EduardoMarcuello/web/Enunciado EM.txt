@@ -1,0 +1,78 @@
+# Ejercicio 4:
+
+## Enunciado
+
+Este proyecto contiene una aplicación web con tres apartados.
+
+Complete las funcionalidades de cada uno de los apartados.
+
+Si necesita añadir alguna explicación de cómo ha implementado un criterio de
+evaluación, inclúyalas AL FINAL de este documento.
+
+Nota: Dispone de tiempo limitado. Organícese y cambie de tarea si se ve atascado.
+
+## Primeras tareas
+
+ 1. Renombre este proyecto añadiendo su nombre y primer apellido al final.
+    Siga la siguiente nomenclatura:
+
+    Ejercicio4_NombreApellido
+
+    Ejercicio4, guión bajo, nombres empezando por mayúscula, primer apellido
+    empezando por mayúscula. ¡No incluya espacios en el nombre!
+
+    Gracias por su colaboración.
+
+ 2. Antes de comenzar con el Apartado C, configure correctamente la conexión
+    a la base de datos en persistence.xml.
+
+    Recuerde crear la base de datos, encontrará un archivo .sql para ayudarle en
+    esta tarea.
+
+ 3. Al ejecutar la aplicación podrá observar que la página no se visualiza
+    correctamente. Arregle ApplicationListener para que ${base} esté disponible
+    en la aplicación.
+
+## Criterios de evaluación
+
+* La aplicación compila y ejecuta. (Requisito Indispensable)
+  * OK | NO
+
+* Uso de convenciones de código.                                    1    punto
+      * Uso del paquete distinto al por defecto.
+      * Clases, métodos y variables bien nombrados.
+      * Código bien formateado.
+
+* Apartado A.                                                       2    puntos
+      * Cálculo de los divisores.                                  (1    punto )
+      * Uso de etiquetas JSTL (En cualquier apartado)              (1    punto )
+
+* Apartado B.                                                       2    puntos
+      * Guardado de un número y cálculo de la suma.                (1.5  puntos)
+      * Resetear números en la sesión.                             (0.5  puntos)
+
+* Apartado C.                                                       4    puntos
+      * Entidad y Operaciones con la BD                            (2    puntos)
+      * Filtro                                                     (1    punto )
+      * Mostrar log                                                (1    punto )
+
+Extra:
+
+* Mejoras creativas. (1 punto)
+Justifique aquí su trabajo extra para poder acceder a esta puntuación.
+Estas mejoras se puntuarán teniendo en cuenta:
+ * Cantidad de trabajo necesaria.
+ * Dificultad de la tarea realizada.
+ * Calidad de la explicación realizada.
+
+-> Mejoras propuestas
+- NO acceso a views, mediante roles
+- Aptdo A: comprobar que number > 0 y tratar el caso contrario con excepcion y aviso al usuario
+
+-> Mejoras implementadas
+- Uso de servlets para tratamiento de datos y procesado de peticiones Web (IndexServlet)
+- Sources Java 1.7 (uso operador <> en List aptdo A, switch actionParam en aptdo B)
+- Controlar la entrada de no numeros en apartado A y B, comprobacion number >0 aptdo A
+- Apartado C, tabla creada en DB test, Database source ya existente
+
+-> O como usa Java EE la OO, (herencia, polimorfismo y vinculación dinámica)

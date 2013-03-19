@@ -1,6 +1,5 @@
 package curso.ejercicio3.control;
 
-import curso.ejercicio3.db.PersistenceException;
 import curso.ejercicio3.db.PersistenceUtils;
 import curso.ejercicio3.db.Task;
 import java.io.IOException;
@@ -17,7 +16,7 @@ public class DeleteTaskServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        
+
         // For application Attributes
         ServletContext application = getServletContext();
 
