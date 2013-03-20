@@ -19,7 +19,7 @@ public class ApartadoA extends HttpServlet {
         String numberText = req.getParameter("number");
         if (numberText == null) {
             // no divisors request yet, do nothing
-
+            resp.sendRedirect(getServletContext().getAttribute("base") + "/views/a.jsp");
         } else {
          //  assert number >0 and handle error
             int number = 0;
@@ -56,7 +56,9 @@ public class ApartadoA extends HttpServlet {
             dispatcher.forward(req, resp);
         }
         // Redirect to View
-        resp.sendRedirect(getServletContext().getAttribute("base") + "/views/a.jsp");
+//        RequestDispatcher dispatcher = req.getRequestDispatcher("/views/a.jsp");
+//        dispatcher.forward(req, resp);
+//        resp.sendRedirect(getServletContext().getAttribute("base") + "/views/a.jsp");
     }
 
 }

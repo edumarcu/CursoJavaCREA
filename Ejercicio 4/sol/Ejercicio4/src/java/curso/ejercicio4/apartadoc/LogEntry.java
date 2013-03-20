@@ -12,42 +12,39 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.TypedQuery;
 
 @Entity
-@Table(name="log_entries")
+@Table(name = "log_entries")
 public class LogEntry implements Serializable {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(nullable=false)
     private String ip;
 
-    @Column(nullable=false)
     private String method;
 
-    @Column(nullable=false)
     private String path;
 
-    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
-    @Column(name = "created_at", nullable=false)
+    @Column(name="created_at")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt;
-
-    //
 
     public LogEntry() {
     }
 
-    public LogEntry(int id, String ip, String method, String path, Date createdAt) {
+    public LogEntry(int id, String ip, String method, String uri, Date createdAt) {
         this.id = id;
         this.ip = ip;
         this.method = method;
-        this.path = path;
+        this.path = uri;
         this.createdAt = createdAt;
     }
 
+    // Getters & Setters
     public int getId() {
         return id;
     }
@@ -88,38 +85,17 @@ public class LogEntry implements Serializable {
         this.createdAt = createdAt;
     }
 
-    @Override
-    public String toString() {
-        return "LogEntry{" + "id=" + id + ", ip=" + ip + ", method=" + method + ", path=" + path + ", createdAt=" + createdAt + '}';
-    }
-
     // Active Record
 
     public static List<LogEntry> findAll(EntityManager em) {
-        String sql = "SELECT log FROM LogEntry log";
-        TypedQuery<LogEntry> query = em.createQuery(sql, LogEntry.class);
-
+        TypedQuery query = em.createQuery("SELECT x FROM LogEntry x ORDER BY x.createdAt DESC", LogEntry.class);
         return query.getResultList();
     }
 
     public void save(EntityManager em) {
-       EntityTransaction et = em.getTransaction();
-        if (em.find(LogEntry.class, this.getId()) != null) {
-            //TODO: handle error
-
-        } else {
-            try {
-                et.begin();
-                em.persist(this);
-                et.commit();
-
-            } catch (Exception e) {
-                if (et.isActive()) {
-                    et.rollback();
-                }
-
-                // TODO: Handle error
-            }
-        }
+        EntityTransaction et = em.getTransaction();
+        et.begin();
+        em.persist(this);
+        et.commit();
     }
 }
